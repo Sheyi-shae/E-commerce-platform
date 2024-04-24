@@ -1,7 +1,12 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
-
+import "../styles/main.css";
+import { Providers } from "@/context/Providers";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+ 
+import { ourFileRouter } from "./api/uploadthing/core";
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Create Next App",
@@ -10,8 +15,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <body className={inter.className}>
+     
+      <Providers>
+      <NextSSRPlugin
+       routerConfig={extractRouterConfig(ourFileRouter)}
+        />
+      {children}
+      </Providers>
+      </body>
     </html>
   );
 }

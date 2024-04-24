@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Couponcode {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId //merging prisma id with mongo db id generated
+  couponSlug      String   
+  title       String
+  expiryDate  DateTime
+   createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
+  updatedAt   DateTime  @updatedAt      // Automatically update updatedAt when a record is modified
+}
+
+
+
+// Define the Category model
+model Category {
+  // MongoDB ObjectId for the category ID
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  imageURL    String
+  slug        String      @unique
+  description String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // One-to-many relation with Products (if applicable)
+  products    Product[]  
+}
+
+// Define the Products model
+model Product {
+  // MongoDB ObjectId for the product ID
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl     String?
+  slug         String      @unique
+  title        String
+ tags         String[]
+  description  String
+  price        Float
+  categoryId   String    @db.ObjectId
+   createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Define an array field to store tags as strings
+  
+
+  // One-to-many relation with Category (if applicable)
+  category     Category?    @relation(fields: [categoryId], references: [id])
+}
+
+model Staff{
+   id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  FirstName String
+  LastName   String
+  StaffDate    String
+   StaffDepartment  String
+   StaffRole    String
+  imageURL    String?
+  password String
+  staffId  String  @unique
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
