@@ -2,16 +2,16 @@
 import { Boxes, Contact, Flame, Home, Layers3, Menu, MenuSquare, NotebookTabs, Store } from "lucide-react";
 import { useState } from "react";
 import CategoriesMenu from "./Categories";
-import { Libre_Franklin } from "next/font/google";
+
 import Link from "next/link";
-import MegaMenu from "./MegaMenu";
+
 
 export default function Navbar() {
   const [showCategories, setShowCategories] = useState(false);
 
   const categoriesBarClasses = `
-  categoriesbar
-    ${showCategories ? ' open' : '  h-0 overflow-hidden'} /* Set initial height */
+  categoriesbar 
+    ${showCategories ? ' open' : ' h-0 overflow-hidden'} /* Set initial height */
   `;
 
   const handleToggleCategories = () => {
@@ -26,21 +26,23 @@ export default function Navbar() {
     
 
   return (
-    <div className="">
+    <div className=" ">
     <br/><br/><br/>
-      <div className="lg:h-[8vh] hidden md:flex mt-5  md:h-[6vh]   bg-black md:rounded-sm">
+      <div className="lg:h-[8vh] hidden md:flex  mt-4 md:h-[6vh] px-20  bg-black md:rounded-sm">
       
-        <div className=" lg:h-[9vh] md:h-[5vh]  ">
-        
+        <div className=" lg:h-[10vh] md:h-[5vh] z-[2] ">
+
+
           <button
             onClick={handleToggleCategories} // Use a separate function for clarity
-            className="bg-yellow-600 dark:bg-yellow-700  shadow-sm  shadow-yellow-600   rounded-sm ml-6 flex md:px-6 md:py-0 lg:px-8 lg:py-2
-            lg:text-2xl whitespace-nowrap text-white dark:text-black font-normal"
+            className=" 
+               ml-6 flex md:px-6 md:py-0 lg:px-8 lg:py-3
+            lg:text-2xl whitespace-nowrap  dark:text-black jersey-25-regular text-gray-900 bg-gradient-to-r from-yellow-600 via-yello-400 to-orange-400 hover:bg-gradient-to-bl font-medium text-center "
           >
-            <Layers3  size={30} className="-p-1"/> All Categories
+            <Layers3  size={30} className=""/> Categories
           </button>
           
-          <div className={categoriesBarClasses}>
+          <div className={`z-40 ${categoriesBarClasses}`}>
             <CategoriesMenu />
           </div>
          
@@ -50,7 +52,8 @@ export default function Navbar() {
         
         {NavLinks.map((link)=>(
           <Link href={''} key={link.id} className="capitalize lg:font-normal
-           text-slate-100 px-4 py-2 items-center flex  whitespace-nowrap md:text-sm  hover:text-yellow-600 transition-colors duration-500">
+           text-slate-100 px-4 py-2 items-center flex  whitespace-nowrap md:text-sm 
+            hover:text-yellow-600   transition-colors duration-500">
            {link.icon} {link.title}
            
            </Link>

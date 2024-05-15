@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import { MoreHorizontal,ArrowUpDown, Edit, Delete, Trash, Trash2, SortAsc, Pen } from "lucide-react"
+import { MoreHorizontal,ArrowUpDown, Edit, Delete, Trash, Trash2, SortAsc, Pen, Copy } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { SortDesc } from 'lucide';
 import DeleteModal from '@/app/components/(backe)/DeleteModal';
+import Link from 'next/link';
 
 
 const formatDate = (originalDate) => {
@@ -122,19 +123,18 @@ export const columns = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            {/* <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+          <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(productId.title)}
             >
-              Copy payment ID
-            </DropdownMenuItem> */}
+             <Copy size={22}/> Copy 
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            
+           <Link href={`/dashboard/products/update/${productId.id}`}> 
+           <DropdownMenuItem className='text-green-500 space-x-2 hover:cursor-pointer '>
+           <DropdownMenuSeparator />
+            <Pen size={22} /> Edit</DropdownMenuItem></Link>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className='text-green-500'>
-            <Pen size={22}/> Edit</DropdownMenuItem>
-            <DropdownMenuItem >
-            <DeleteModal  endpoint={`products`} id={productId.id}/>
+            <DropdownMenuItem><DeleteModal name={'Product'} endpoint={`products`} id={productId.id}/>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

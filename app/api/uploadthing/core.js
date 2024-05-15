@@ -39,4 +39,14 @@ export const ourFileRouter = {
       return { uploadedBy:"sheyman" };
  
     }),
+    bannerImageUploader: f({ image: { maxFileSize: "4MB" } })
+   
+    .onUploadComplete(async ({ metadata, file }) => {
+      // This code RUNS ON YOUR SERVER after upload
+  
+ 
+      console.log("file url", file.url);
+      return { uploadedBy:"sheyman" };
+ 
+    }),
 } 

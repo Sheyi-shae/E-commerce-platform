@@ -1,5 +1,6 @@
 
 
+import ProductForm from '@/app/components/(backe)/forms/ProductForm';
 import NewProductForm from '@/app/components/formInputs/NewProductForm';
 import { getData } from '@/lib/getData';
 
@@ -22,7 +23,7 @@ const categories= categoriesData.map((category)=>{
 return (
   <div>
   
-    <NewProductForm categories={categories}/>
+    <ProductForm title='Create New Product' categories={categories}/>
   </div>
 )
   

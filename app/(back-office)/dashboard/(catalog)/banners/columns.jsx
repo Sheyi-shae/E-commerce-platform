@@ -1,5 +1,5 @@
 "use client"
-
+import Image from 'next/image';
 import { MoreHorizontal,ArrowUpDown, Pen, Copy } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -8,6 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -68,22 +69,44 @@ export const columns = [
       }
       
   },
- 
   {
-    accessorKey: "couponSlug",
-    header:() => <div className="">Coupon Code</div>,
+    accessorKey: "imageURL",
+    header: () => <div className="">Thumbnail</div>,
     cell: ({ row }) => {
-      const couponSlug = (row.getValue("couponSlug"))
-      
+        const imageURL = (row.getValue("imageURL"))
+        
  
-      return <div className=" font-medium line-clamp-1">{couponSlug}</div>
+      return <div className="">
+      
+        <Image src={imageURL} width={500} alt=''  height={500} className='w-12 h-12 rounded-full object-cover'/>
+      </div>
     },
   },
   {
-    accessorKey: "expiryDate",
-    header: () => <div className="">Expiry Date</div>,
+    accessorKey: "imageURL",
+    header:() => <div className="">Image Link</div>,
     cell: ({ row }) => {
-      const date =(row.getValue("expiryDate"))
+      const imageURL = (row.getValue("imageURL"))
+      
+ 
+      return <div className=" font-medium line-clamp-1">{imageURL}</div>
+    },
+  },
+  {
+    accessorKey: "isActive",
+    header:() => <div className="">Status</div>,
+    cell: ({ row }) => {
+      const isActive = (row.getValue("isActive"))
+      
+ 
+      return <div className=" font-medium line-clamp-1">{isActive===true?'Active':'Draft'}</div>
+    },
+  },
+  {
+    accessorKey: "createdAt",
+    header: () => <div className="">Date Created</div>,
+    cell: ({ row }) => {
+      const date =(row.getValue("createdAt"))
     
  
       return <div className=" font-medium">{formatDate(new Date(date))}</div>
@@ -105,17 +128,17 @@ export const columns = [
           <DropdownMenuContent align="end">
           
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(categoryId.couponSlug)}
+              onClick={() => navigator.clipboard.writeText(categoryId.title)}
             >
              <Copy size={22}/> Copy 
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-           <Link href={`/dashboard/coupon/update/${categoryId.id}`}> 
+           <Link href={`/dashboard/banners/update/${categoryId.id}`}> 
            <DropdownMenuItem className='text-green-500 space-x-2 hover:cursor-pointer '>
            <DropdownMenuSeparator />
             <Pen size={22} /> Edit</DropdownMenuItem></Link>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><DeleteModal name={'Coupon'} endpoint={`coupon`} id={categoryId.id}/></DropdownMenuItem>
+            <DropdownMenuItem><DeleteModal name={'Banner'} endpoint={`categories`} id={categoryId.id}/></DropdownMenuItem>
        
           </DropdownMenuContent>
         </DropdownMenu>

@@ -7,7 +7,7 @@ export default function Cards() {
 
   ]
   return (
-    <div className='w-full sm:p-2 h-[15vh]   md:w-[70vw] md:h-[40vh]  bg-white
+    <div className='w-[80%] p-0 h-[15vh]   md:w-[65vw] md:h-[30vh]  bg-white
      dark:bg-slate-600 rounded-sm dark:shadow-none shadow-slate-300 mb-48 mt-4 md:mb-24 md:-mt-16 shadow-md z-[2]'>
      <div className='flex   w-full h-full '>
      {imageLinks.map((img)=>(

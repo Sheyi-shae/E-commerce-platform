@@ -12,6 +12,7 @@ import {
   
 
 export default function Sidebar({sideBar, setSideBar}) {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const [collaspse, setCollapse]= useState(false);
     const sideLinks=[
         {title:'customers',
@@ -31,10 +32,12 @@ export default function Sidebar({sideBar, setSideBar}) {
     },
     {title:'online store',
         icon:<Store/>,
-        url:'/dashboard/store'
+        url:baseUrl
     
     },
+
     ]
+    
     const collapseLinks=[
         {title:'categories',
         
@@ -58,6 +61,7 @@ export default function Sidebar({sideBar, setSideBar}) {
     },
 ]
     const pathname=usePathname();
+    
   return (
     <div>
     <div className='fixed h-auto z-[1] '>
@@ -104,8 +108,8 @@ export default function Sidebar({sideBar, setSideBar}) {
 
 <Link onClick={()=>setSideBar(false)} href={'/dashboard/settings'}><span className={pathname === '/dashboard/settings' ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100 shadow-sm shadow-black md:p-4 p-3 dark:bg-slate-900': 'gap-2 flex flex-row   p-3 md:p-4 dark:bg-slate-800'}>
 <UserCog /> Settings</span></Link>
-<button  className="text-white  bg-gradient-to-br from-pink-500 to-orange-400
-    hover:bg-gradient-to-bl flex items-center justify-center focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 
+<button  className="text-white  bg-gradient-to-br from-pink-600 to-red-600
+    hover:bg-gradient-to-bl flex items-center justify-center rounded-md shadow-md focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 
     font-medium  text-sm  py-3  ml-3 text-center me-2 mb-2">Logout <LogOut/> </button>
 </div>
 

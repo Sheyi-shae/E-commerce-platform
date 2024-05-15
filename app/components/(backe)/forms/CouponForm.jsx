@@ -9,16 +9,19 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 
 
-export default function CouponForm({title}) {
+export default function CouponForm({title,initialData={}}) {
+  const id=initialData.id
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl]=useState('')
+
   const {
     register,
     handleSubmit,
-    watch,
+    
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({defaultValues:{
+    ...initialData
+  }});
   const router = useRouter();
 //  const titles = watch('title');
 //  const date = watch('expiryDate');
@@ -29,6 +32,15 @@ export default function CouponForm({title}) {
 
     const couponSlug=generateCouponCode(data.title,data.expiryDate);
     data.couponSlug=couponSlug 
+    if(id){
+      makePutRequest(
+        setLoading,
+        `api/coupon/${id}`,
+        data,
+        "coupon"
+      )
+
+    }else{
     makePostRequest(
       setLoading,
       "api/coupon",
@@ -36,6 +48,8 @@ export default function CouponForm({title}) {
       `coupon ${couponSlug}`,
       reset
     )
+    router.push('/dashboard/coupon/');
+  }
    
   }
 
@@ -82,8 +96,9 @@ export default function CouponForm({title}) {
         
           </div> 
           <SubmitButton 
-         isLoading={loading}
-          title="new coupon"
+          isLoading={loading}
+          title={id?"update coupon" : "create new coupon"}
+          loadingTitle={id? 'updating please wait...':'creating please wait...'}
         />
       </form>
     </div>

@@ -18,7 +18,7 @@ export async function POST(request) {
         })
 
         // Return the newly created coupon as JSON response
-        console.log(newCoupon)
+      
         return NextResponse.json(newCoupon);
         
     } catch (error) {

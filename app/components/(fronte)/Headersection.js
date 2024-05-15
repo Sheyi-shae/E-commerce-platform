@@ -14,7 +14,8 @@ export default function Headersection() {
   
   return (
     <>
-    <div className='hidden rounded-sm shadow-sm shadow-slate-500 z-10 fixed w-full bg-white dark:bg-slate-700  md:flex md:flex-row h-[12vh] md:h-[12.5vh]  items-center  '>
+    <div className='hidden rounded-sm shadow-sm shadow-slate-500 z-10 fixed w-full
+     bg-white dark:bg-slate-700 px-16  md:flex md:flex-row h-[12vh] md:h-[12.5vh]  items-center  '>
     {/* large screen */}
     <div>
         <h3 className='capitalize font-mono font-medium text-3xl p-8'>logo here</h3>
@@ -42,7 +43,7 @@ export default function Headersection() {
     </div>
     {/* mobile screen */}
 
-    <div className='md:hidden fixed z-10 lg:hidden flex shadow-md shadow-slate-400 dark:shadow-inner  min-w-full justify-between flex-row bg-white
+    <div className='md:hidden fixed z-10 px-12 lg:hidden flex shadow-md shadow-slate-400 dark:shadow-inner  min-w-full justify-between flex-row bg-white
      dark:bg-slate-700  h-[10vh] gap-2  items-center'>
      
      <div className='flex  gap-3'>
@@ -52,7 +53,7 @@ export default function Headersection() {
     </div>
     <div>
     <button onClick={searchToggle}>
-        <Search  size={28} className='text-black dark:text-yellow-600 '/></button>
+        <Search  size={28} className='text-black dark:text-yellow-600 z-[2] '/></button>
     </div></div>
     <div className='flex justify-center'>
     

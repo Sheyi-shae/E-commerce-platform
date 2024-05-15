@@ -18,7 +18,7 @@ import React, { useState } from 'react'
 export default function CategoriesMenu() {
   const [categories, setCategories] = useState([]) // Initialize as an empty array
   return (
-    <div className='flex flex-col  bg-white dark:bg-slate-700 border w-[16vw] ml-6 shadow-sm rounded-b-md'>
+    <div className='flex z-40 flex-col  bg-white dark:bg-slate-700 border w-[14vw] ml-6 shadow-sm rounded-b-md'>
       <FetchData endpoint="categories" setState={setCategories} state={categories} />
       {categories.map((category) => (
         <ul key={category.id}>

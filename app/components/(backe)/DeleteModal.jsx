@@ -4,7 +4,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2'
 
-export default function DeleteModal({endpoint,id}){
+export default function DeleteModal({endpoint,id, name}){
   const [loading, setLoading]=useState(false);
   const router = useRouter();
 
@@ -17,14 +17,14 @@ Swal.fire({
   text: "You won't be able to revert this!",
   icon: "warning",
   showCancelButton: true,
-  confirmButtonColor: "rgb(224 36 36 / var(--tw-text-opacity))",
-  cancelButtonColor: "rgb(5 122 85 / var(--tw-text-opacity))",
+  confirmButtonColor: "#ff0000",
+  cancelButtonColor: "#808080",
   confirmButtonText: "Yes, delete it!"
  
   
 }).then(async(result) => {
   if (result.isConfirmed) {
-    console.log(`${baseUrl}/api/${endpoint}/${id}`)
+    
      //fire delete request when yes is clicked
     const res = await fetch(`${baseUrl}/api/${endpoint}/${id}`, {
       method: "DELETE",
@@ -36,7 +36,7 @@ Swal.fire({
       setLoading(false);
     Swal.fire({
       title: "Deleted!",
-      text: "Your file has been deleted.",
+      text: `${name} has been deleted.`,
       icon: "success"
     });
   
