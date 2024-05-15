@@ -1,16 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+      width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #cccccc;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 3px;
+}
  
 
+ 
+
+.collapsibles {
+  transition-property: height;
+  transition-duration: 700ms;
+  overflow: hidden;
+  background-color: #cccccc;
+}
 .roboto-light {
   font-family: "Roboto", sans-serif;
   
   font-style: normal;
 }
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font: weight 500px;;
+  font-style: normal;
+}
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.open-sans{
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 .jersey-25-regular {
   font-family: "Jersey 25", sans-serif;
-  font-weight: 600;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -68,9 +108,40 @@
 }
 .categoriesbar.close {
   
-  transform: translateY(1%); /* Slide down when open */
+  transform: translateY(1%); /* Slide up when open */
   transition: all 1s ease-out
+  l
 }
+
+
+.cartbar {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: all 0.3s ease-out; /* Combined transitions */
+}
+
+.cartbar.cartopen {
+  transform: translateX(1%);
+  transition: all 1s ease-in;
+   width: 100%;/* Open state styles */
+}
+
+.cartbar.cartclose {
+  transform: translateX(100%);
+  transition: all 1s ease-out;
+  width: 0;
+  
+}
+.blinking-text{
+  animation: blink 2s infinite;
+}
+@keyframes blink{
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
 
 
 

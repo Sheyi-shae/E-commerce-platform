@@ -18,6 +18,7 @@ model Couponcode {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId //merging prisma id with mongo db id generated
   couponSlug      String   
   title       String
+  discount    String
   expiryDate  DateTime
    createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
   updatedAt   DateTime  @updatedAt      // Automatically update updatedAt when a record is modified
@@ -48,8 +49,13 @@ model Product {
   slug         String      @unique
   title        String
  tags         String[]
+productImages String[]
+ Origninalprice Float
+ Discountedprice Float
+ qty              Int
+ stock          Int
   description  String
-  price        Float
+  
   categoryId   String    @db.ObjectId
    createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
@@ -58,7 +64,10 @@ model Product {
   
 
   // One-to-many relation with Category (if applicable)
-  category     Category?    @relation(fields: [categoryId], references: [id])
+  
+  category     Category?    @relation(fields: [categoryId], references: [id], onDelete:Cascade, onUpdate:Cascade)
+  //a product has many review
+  reviews Reviews[]
 }
 
 model Staff{
@@ -81,4 +90,26 @@ model Banners{
   isActive  Boolean
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+}
+model Reviews {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  customer_name String
+  review String
+  ratings Int
+  productId String      @db.ObjectId
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  //reviews belong to a product
+   product     Product?    @relation(fields: [productId], references: [id],onDelete:Cascade, onUpdate:Cascade)
+}
+model User {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId //merging prisma id with mongo db id generated
+  firstName    String   
+  lastName    String
+  email    String  @unique
+  password String
+  isAdmin    Boolean
+   createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
+  updatedAt   DateTime  @updatedAt      // Automatically update updatedAt when a record is modified
 }

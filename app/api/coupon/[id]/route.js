@@ -9,11 +9,11 @@ export async function PUT(request,{params:{id}}){
   try {
       const { title,
         expiryDate,
-        couponSlug}=await request.json()
+        couponSlug,discount}=await request.json()
      
      
         const isoExpiryDate = new Date(expiryDate).toISOString();
-      
+      const perDiscount=parseFloat(discount)
       const updatedCoupon = await db.couponcode.update({
         where:{
           id
@@ -21,7 +21,8 @@ export async function PUT(request,{params:{id}}){
           data:{
             title,
             expiryDate:isoExpiryDate,
-            couponSlug
+            couponSlug,
+            discount:perDiscount
           }
       })
      

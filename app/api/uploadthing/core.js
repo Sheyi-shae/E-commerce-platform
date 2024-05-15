@@ -29,6 +29,19 @@ export const ourFileRouter = {
       return { uploadedBy:"sheyman" };
  
     }),
+     //for multiple products
+     productMultipleImageUploader: f({ image: { maxFileSize: "8MB", maxFileCount:4 } })
+   
+     .onUploadComplete(async ({ metadata, file }) => {
+       // This code RUNS ON YOUR SERVER after upload
+   
+  
+       console.log("file url", file.url);
+       return { uploadedBy:"sheyman" };
+  
+     }),
+    
+ 
     staffImageUploader: f({ image: { maxFileSize: "4MB" } })
    
     .onUploadComplete(async ({ metadata, file }) => {

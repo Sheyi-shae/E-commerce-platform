@@ -1,9 +1,10 @@
 'use client'
-import { Boxes, Contact, Flame, Home, Layers3, Menu, MenuSquare, NotebookTabs, Store } from "lucide-react";
+import { AlignRight, Boxes, Contact, Flame, Home, Layers3, Menu, MenuSquare, NotebookTabs, Store } from "lucide-react";
 import { useState } from "react";
 import CategoriesMenu from "./Categories";
 
 import Link from "next/link";
+import { Button } from "flowbite-react";
 
 
 export default function Navbar() {
@@ -27,20 +28,15 @@ export default function Navbar() {
 
   return (
     <div className=" ">
-    <br/><br/><br/>
-      <div className="lg:h-[8vh] hidden md:flex  mt-4 md:h-[6vh] px-20  bg-black md:rounded-sm">
+   <div className="h-[9.5vh] md:h-[12.7vh] lg:h-[12.7vh] "></div>
+      <div className="lg:h-[8vh] hidden md:flex lg:flex items-center     px-20  bg-black ">
       
-        <div className=" lg:h-[10vh] md:h-[5vh] z-[2] ">
+        <div className=" hidden md:hidden lg:block h-10 z-[2] ">
 
-
-          <button
-            onClick={handleToggleCategories} // Use a separate function for clarity
-            className=" 
-               ml-6 flex md:px-6 md:py-0 lg:px-8 lg:py-3
-            lg:text-2xl whitespace-nowrap  dark:text-black jersey-25-regular text-gray-900 bg-gradient-to-r from-yellow-600 via-yello-400 to-orange-400 hover:bg-gradient-to-bl font-medium text-center "
-          >
-            <Layers3  size={30} className=""/> Categories
-          </button>
+        <Button onClick={handleToggleCategories} className="px-12 font-medium focus:ring-0 montserrat" gradientDuoTone="pinkToOrange">
+        <AlignRight  size={20} className=" mr-2"/> Categories</Button>
+          
+         
           
           <div className={`z-40 ${categoriesBarClasses}`}>
             <CategoriesMenu />
@@ -52,9 +48,9 @@ export default function Navbar() {
         
         {NavLinks.map((link)=>(
           <Link href={''} key={link.id} className="capitalize lg:font-normal
-           text-slate-100 px-4 py-2 items-center flex  whitespace-nowrap md:text-sm 
+           text-slate-100 px-4 py-2 open-sans items-center flex  whitespace-nowrap md:text-sm 
             hover:text-yellow-600   transition-colors duration-500">
-           {link.icon} {link.title}
+            {link.title}
            
            </Link>
         ))}

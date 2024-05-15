@@ -52,6 +52,7 @@ export const columns = [
   {
     accessorKey: "title",
     header: ({ column }) => {
+      
         
         return (
           <Button
@@ -59,6 +60,7 @@ export const columns = [
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
            Title
+           
             <SortAsc className="ml-2 h-4 w-4" />
             
           </Button>
@@ -86,14 +88,14 @@ export const columns = [
       const description = (row.getValue("description"))
       
  
-      return <div className=" font-medium line-clamp-1">{description}</div>
+      return <div className=" font-medium line-clamp-2">{description}</div>
     },
   },
   {
-    accessorKey: "price",
+    accessorKey: "Discountedprice",
     header:() => <div className="">Product price</div>,
     cell: ({ row }) => {
-      const price = (row.getValue("price"))
+      const price = (row.getValue("Discountedprice"))
       
  
       return <div className=" font-medium line-clamp-1">{price}</div>

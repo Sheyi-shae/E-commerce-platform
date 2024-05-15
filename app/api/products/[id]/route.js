@@ -9,15 +9,21 @@ export async function PUT(request,{params:{id}}){
   try {
       const {  title,
         categoryId,
+        categoryTitle,
         description,
         imageUrl,
         slug,
-        price,
-        tags,}=await request.json()
+        qty,
+        stock,
+        Origninalprice,
+        Discountedprice,
+        tags}=await request.json()
      
      
-    
-        const rawPrice= parseFloat(price);
+        const quantity = parseInt(qty);
+        const rawstock = parseInt(stock);
+        const rawPrice= parseFloat(Origninalprice);
+        const rawPrice2 =parseFloat(Discountedprice)
       
       const updatedProduct = await db.product.update({
         where:{
@@ -25,12 +31,16 @@ export async function PUT(request,{params:{id}}){
         },
           data:{
             title,
-            categoryId,
-            description,
-          tags,
-            imageUrl,
-            slug,
-            price: rawPrice // Renamed to avoid conflict with the 'price' variable below
+                categoryId,
+                categoryTitle,
+                description,
+                imageUrl,
+                slug,
+                qty:quantity,
+                stock:rawstock,
+                Origninalprice:rawPrice,
+                Discountedprice:rawPrice2,
+                tags, // Renamed to avoid conflict with the 'price' variable below
         } 
         
       })
@@ -84,28 +94,27 @@ export async function DELETE(request,{params:{id}}) {
   }
 }
 
+export async function GET(request, { params: { id} }) { // Use slug for clarity
 
-//get request for individual product
-
- 
-export async function GET(request, { params: { id } }) {
-
-  
   try {
-    const product= await db.product.findUnique({
+    const product = await db.product.findUnique({
       where: {
-        id,
+       id,
+       
       },
     });
 
     if (!product) {
-      console.error("product not found with ID:", id);
-      return NextResponse.json({ error: "product not found" }, { status: 404 });
+      console.error("Product not found with slug:", slug);
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
     return NextResponse.json(product);
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json({ status: 500 });
+    console.error("Error fetching product:", error); // More specific error message
+
+    // Consider adding more specific error handling based on error types (e.g., database errors)
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
+

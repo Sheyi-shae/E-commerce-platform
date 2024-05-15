@@ -4,16 +4,19 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
     try {
         // Extract data from request body
-        const { title, expiryDate, couponSlug } = await request.json();
+        const { title, expiryDate, couponSlug,discount } = await request.json();
 
         const isoExpiryDate = new Date(expiryDate).toISOString();
 
+        
+        const perDiscount = parseFloat(discount);
         // Create a new coupon in the database
         const newCoupon =await db.couponcode.create({
             data: {
                 title,
                 expiryDate:isoExpiryDate,
-                couponSlug
+                couponSlug,
+                discount:perDiscount
             }
         })
 

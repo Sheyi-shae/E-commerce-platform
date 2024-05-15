@@ -5,6 +5,7 @@ import Navbar from "../components/(fronte)/Navbar";
 import Headersection from "../components/(fronte)/Headersection";
 
 
+
 export default function Layout({ children }) {
   return (
     <html lang="en" className="dark">
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
      
       <Providers>
       <Headersection/>
+      
     <Navbar/>
       {children}
       </Providers>

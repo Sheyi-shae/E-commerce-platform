@@ -9,7 +9,7 @@ export default function Testimonial() {
   return (
     <div className='flex flex-col ring-1 ring-slate-200 w-full bg-inherit '>
     
-    <div className='uppercase bg-slate-300 p-2  text-black text-lg font-semibold items-center justify-center flex'>our Testimonial</div>
+    <div className='uppercase bg-slate-200 p-2  text-black shadow-md font-semibold items-center justify-center flex'>our Testimonial</div>
     <div className='flex flex-col h-[35vh] p-3 rounded-md' >
     <div className=' relative h-1/2 bg-inherit rounded-md'>
     {/* image div starts here */}
@@ -37,11 +37,11 @@ export default function Testimonial() {
         
         
     </div>
-    <Blockquote className="text-sm">
+    <p className="text-sm roboto-light">
     
       "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to
       complex dashboard. Perfect choice for your next SaaS application."
-    </Blockquote>
+    </p>
     </div>
   )
 }

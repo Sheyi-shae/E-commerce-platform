@@ -7,16 +7,22 @@ export async function POST(request) {
             title,
             categoryId,
             description,
+            
           tags,
-            imageUrl,
+          productImages,
             slug,
-            price: rawPrice // Renamed to avoid conflict with the 'price' variable below
+            qty:quantity,
+            stock:rawstock,
+            Origninalprice: rawPrice,
+            Discountedprice:rawPrice2 // Renamed to avoid conflict with the 'price' variable below
         } = await request.json();
 
         
-        // Parse the price as a float
-        const price = parseFloat(rawPrice);
-
+        // Parse the price as a float`
+        const qty = parseInt(quantity);
+        const stock = parseInt(rawstock);
+        const Origninalprice = parseFloat(rawPrice);
+        const Discountedprice = parseFloat(rawPrice2);
         
 
         const newProduct = await db.product.create({
@@ -24,9 +30,13 @@ export async function POST(request) {
                 title,
                 categoryId,
                 description,
-                imageUrl,
-                slug,
-                price,
+                productImages,
+                imageUrl:productImages[0],
+                   slug,
+                   stock,
+                   qty,
+                Origninalprice,
+                Discountedprice,
                 tags,
                 
             }

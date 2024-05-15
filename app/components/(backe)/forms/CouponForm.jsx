@@ -83,6 +83,13 @@ export default function CouponForm({title,initialData={}}) {
             errors={errors}
             type='date'
           />
+          <TextInput
+            label="% Discount"
+            name="discount"
+            register={register}
+            errors={errors}
+            type='number'
+          />
          
          {/* <TextInput
             label="Generated Coupon"

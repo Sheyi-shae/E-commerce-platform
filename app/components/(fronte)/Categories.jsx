@@ -22,7 +22,7 @@ export default function CategoriesMenu() {
       <FetchData endpoint="categories" setState={setCategories} state={categories} />
       {categories.map((category) => (
         <ul key={category.id}>
-          <li className=' flex  justify-between shadow-sm text-[1rem] font-serif p-3 px-3 border-b-[1px]  border-yellow-50
+          <li className=' flex  justify-between shadow-sm text-[1rem] roboto-light p-3 px-3 border-b-[1px]  border-yellow-50
            dark:text-slate-100 capitalize hover:bg-yellow-600 dark:hover:text-black hover:text-white'><span>
            {category.title}</span><button><ChevronRight/></button></li>
         

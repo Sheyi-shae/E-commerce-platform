@@ -1,21 +1,24 @@
-import { ExternalLink } from "lucide-react";
-import Link from "next/link";
+"use client"
 import Banner from "../components/(fronte)/Banner";
 import Cards from "../components/(fronte)/Cards";
 import TrendingProducts from "../components/(fronte)/TrendingProducts";
-import Product4x from "../components/(fronte)/products/4xProducts";
+
 import Testimonial from "../components/(fronte)/Testimonial";
 import Newsletter from "../components/(fronte)/Newsletter";
 import Image from "next/image";
 
+import { useState } from "react";
+
 export default function Home() {
+  
   return (
     <main className="flex min-h-screen  flex-col dark:bg-slate-800 items-center justify-between p-2">
+   
       <Banner />
       <Cards />
-      <div className="flex w-full flex-col gap-5 px-3 md:px-20 justify-center -mt-32 md:-mt-12 md:flex-row ">
+      <div className="flex w-full flex-col gap-5 px-1 md:px-20 justify-center -mt-32 md:-mt-12 md:flex-row ">
         {/* Trending Products */}
-        <div className="w-full md:w-[70%] p-2">
+        <div className="w-full md:w-[70%] p-1 md:p-2">
           <TrendingProducts />
           <div className="flex justify-center items-center py-4">
           <div className='mt-3'>

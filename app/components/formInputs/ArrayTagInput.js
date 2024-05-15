@@ -9,7 +9,7 @@ export default function ArrayTagInput({setTags,tags}) {
 
   const addTag =()=>{
     if(!tag) return
-    setTags([...tags,tag])
+    setTags([...tags,tag])//array
     setTag('')
   }
   const removeTag=(i)=>{
@@ -55,7 +55,8 @@ export default function ArrayTagInput({setTags,tags}) {
 {tags.map((item,i)=>{
 return (
 <div key={i} className='inline-flex'>
-<button onClick={()=>removeTag(i)} className=' flex mt-1 p-1 ml-1 bg-slate-100 shadow-sm dark:bg-slate-700 dark:text-slate-200 rounded-sm' >
+<button onClick={()=>removeTag(i)} className=' flex mt-1 p-1 ml-1 bg-slate-100 shadow-sm dark:bg-slate-700
+ dark:text-slate-200 rounded-sm' >
 {item} <span><X size={22}/></span></button>
 </div>)
 })}

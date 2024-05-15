@@ -1,6 +1,6 @@
 "use client"
 import ArrayTagInput from '@/app/components/formInputs/ArrayTagInput';
-import ImageInput from '@/app/components/formInputs/ImageUploader';
+import { MultipleImageInput } from '@/app/components/formInputs/ImageUploader';
 import TextInput, { SelectInput, SubmitButton, TextareaInput } from '@/app/components/formInputs/TextInput';
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest';
 import FetchData from '@/lib/fetchData(client)';
@@ -14,16 +14,17 @@ import { useForm } from 'react-hook-form';
 
 export default function ProductForm({title,initialData={}}) {
  const initialImage=initialData?.imageUrl??""
+
  const id =initialData.id
  
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl]=useState(initialImage)
+  const [productImages, setProductImages]=useState([])
+
   const [category, setCategory]=useState([])
   
-  
-
   const[tags,setTags]=useState([])
-  
+  const qty=1
 
   
 
@@ -37,6 +38,7 @@ export default function ProductForm({title,initialData={}}) {
   }});
   const router = useRouter();
 
+  
   //form submission starts here
   async function onSubmit(data){
 
@@ -44,9 +46,9 @@ export default function ProductForm({title,initialData={}}) {
 
     const slug=generateSlug(data.title); 
     data.tags=tags
-    data.imageUrl=imageUrl;
+    data.productImages=productImages;
+    data.qty=qty
     
-   
     
     //adding the slug generated to data
     data.slug=slug;
@@ -67,6 +69,7 @@ export default function ProductForm({title,initialData={}}) {
       "product",
       reset
     )
+    
 }
     
     router.push('/dashboard/products/');
@@ -123,24 +126,43 @@ export default function ProductForm({title,initialData={}}) {
 
         {/* end tag sec */}
        
-           
-     <ImageInput imageUrl={imageUrl} 
-            setImageUrl={setImageUrl} 
-            label={'Product Image(s)'} endpoint='productImageUploader' />
-             <TextInput
-            label="Product Price(&#8358;)"
-            name="price"
+           {/* product images */}
+     <MultipleImageInput imageUrls={productImages} 
+            setImageUrls={setProductImages} 
+            label={'Product Images'} endpoint='productMultipleImageUploader' />
+          
+          <TextInput
+            label="Product Stock"
+            name="stock"
             register={register}
             errors={errors}
-            
+            type='number'
+          />
+             <TextInput
+            label="Initial Price(&#8358;)"
+            name="Origninalprice"
+            register={register}
+            errors={errors}
+            className='grid-cols-1'
+            type='number'
+          />
+          <TextInput
+            label="Discounted Price(&#8358;)"
+            name="Discountedprice"
+            register={register}
+            errors={errors}
+            className='grid-cols-1'
             type='number'
           />
           </div> 
-          {imageUrl && <SubmitButton 
+          {productImages && 
+          <SubmitButton 
+        
           isLoading={loading}
           title={id?"update product " : "create new product"}
           loadingTitle={id? 'updating please wait...':'creating please wait...'}
-        />}
+        />
+        }
           
       </form>
     </div>
