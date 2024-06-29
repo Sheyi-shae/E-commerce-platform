@@ -102,6 +102,9 @@ export async function GET(request, { params: { id} }) { // Use slug for clarity
        id,
        
       },
+      include:{
+        reviews :true
+    },
     });
 
     if (!product) {

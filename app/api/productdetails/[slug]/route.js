@@ -10,6 +10,9 @@ export async function GET(request, { params: { slug} }) { // Use slug for clarit
         where: {
          slug 
         },
+        include:{
+          reviews:true
+        },
       });
   
       if (!product) {

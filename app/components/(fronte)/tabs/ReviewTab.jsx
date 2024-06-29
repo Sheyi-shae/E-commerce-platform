@@ -10,30 +10,20 @@ import { makePostRequest } from '@/lib/apiRequest';
 import FetchData from '@/lib/fetchData(client)';
 import ReviewForm from './ReviewForm';
 import FetchedReviews from './FetchedReviews';
+import { useSession } from 'next-auth/react';
 
 export default function ReviewTab({productId}) {
-  const userId= "user1";
+  const { data: session } = useSession();
+     const user=session?.user
   const [isOpen, setIsOpen] = useState(false);
+  const [product,setProduct]=useState([])
 
-  const[reviews,setReviews]=useState([])
+  
 
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen);
   };
-  const AnimatedSubmitButton = ({ children ,onClick}) => {
-    return (
-      <motion.button
-        whileHover={{ scale: 1.1 }} // Optional hover effect
-        animate={{ outlineOffset: [-4, 4, -4, 3] }} // Increased outline movement
-        transition={{ duration: 2, repeat: Infinity }}
-        onClick={onClick}
-      >
-        {children}
-      </motion.button>
-    );
-  };
-  
  
 
   
@@ -42,28 +32,25 @@ export default function ReviewTab({productId}) {
     {/* star rating */}
     <div className='w-full md:w-[50vw] lg:w-[60vw]'>
     <div className='mt-2 flex justify-center '>
-   {isOpen ? <Button onClick={toggleCollapse} outline gradientMonochrome="failure">
-     CANCEL 
-    </Button> : <AnimatedSubmitButton onClick={toggleCollapse}>
-      <Button outline gradientMonochrome="success">WRITE A REVIEW</Button>
-    </AnimatedSubmitButton> }
+   {!isOpen && 
+      <Button outline onClick={toggleCollapse} disabled={!user} gradientMonochrome="success">WRITE A REVIEW</Button>
+    }
     </div>
     
     <div
-        className={`p-4 transition-all w-full  flex justify-center duration-300 ${
-          isOpen ? 'h-auto w-full opacity-100' : 'max-h-0 opacity-0'
+        className={`p-4 transition-all w-full  mx-auto flex justify-center duration-300 ${
+          isOpen ? 'h-auto w-full opacity-100 mx-auto' : 'max-h-0 opacity-0'
         } overflow-hidden`}
       >
         <ReviewForm productId={productId} isOpen={isOpen} setIsOpen={setIsOpen}/>
      
       </div>
-      <FetchData state={reviews} setState={setReviews} endpoint={`reviews/${productId}`}/>
-     
+      <FetchData state={product} setState={setProduct} endpoint={`products/${productId}`}/>
 
-      {reviews.length > 0 ? (
+      {product.reviews?.length > 0 ? (
   <div className="mb-8">
-    <h2 className="text-2xl font-medium mb-4">Customer Reviews</h2>
-    {reviews.map((review) => (
+   
+    {product.reviews.map((review) => (
       <FetchedReviews key={review.id} review={review} /> // Use unique identifier from review object
     ))}
   </div>

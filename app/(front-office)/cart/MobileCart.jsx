@@ -14,7 +14,7 @@ import Link from "next/link";
 export function MobileCartComponent() {
     const [showQty,setShowQty]=useState(false)
     const cartItems= useSelector((store)=>store.cart) // cart is it name in the reducer
-  const subTotal = cartItems.reduce((acc,currentItem)=>{
+  const subTotal = cartItems?.reduce((acc,currentItem)=>{
    return acc + (currentItem.Discountedprice * currentItem.qty) //acc is the accumulator
   },0)
   const dispatch=useDispatch()
@@ -30,9 +30,9 @@ function handleQtyDecrement(cartId){
 }
   return (
     <div className="overflow-x-auto flex flex-col gap-3 ">
-    {cartItems.length > 0 ? 
+    {cartItems?.length > 0 ? 
 
-cartItems.map((item, i) => (
+cartItems?.map((item, i) => (
       <Table striped key={i}>
         <Table.Head>
           <Table.HeadCell>Product </Table.HeadCell>
@@ -105,7 +105,7 @@ cartItems.map((item, i) => (
         </div>
         </>
       )}
-      {cartItems.length > 0 && 
+      {cartItems?.length > 0 && 
       <>
       <div className="w-full p-1 py-4 text-slate-800 dark:text-slate-50 roboto-bold
        rounded-sm flex justify-center gap-5  bg-gray-200 shadow-lg dark:bg-slate-600">

@@ -1,15 +1,22 @@
+'use client'
 import React, { useState } from 'react'
-import TextInput, { TextareaInput } from '../../formInputs/TextInput';
-import { Button } from 'flowbite-react';
+import  { TextareaInput } from '../../formInputs/TextInput';
+import { Button, } from 'flowbite-react';
 import { useForm } from 'react-hook-form';
 import { makePostRequest } from '@/lib/apiRequest';
 import toast from 'react-hot-toast';
+import LoadingDots from '../regForms/LoadingDots';
+import { useSession } from 'next-auth/react';
 
 
 export default  function ReviewForm({productId, isOpen,setIsOpen}) {
-    const [starRating,setStarRating]=useState(null)
-    const [starHover,setStarHover]=useState(null)
+  const [starRating, setStarRating] = useState(0);
+  const [starHover, setStarHover] = useState(0);
     const[loading,setLoading]=useState(false)
+    const { data: session } = useSession();
+     const firstName=session?.user?.firstName
+     const lastName=session?.user?.lastName
+     const name= firstName + ' ' + lastName
 
     
 
@@ -21,23 +28,23 @@ export default  function ReviewForm({productId, isOpen,setIsOpen}) {
         handleSubmit,
         reset,
         formState: { errors },
-        // spread the initial data gotten from our API as default value so we can update them
+       
       } = useForm();
 
       async function onSubmit(data){
-        if (!starRating){
-        return (
-          toast.error('Give star  rating')
-        )
-        }
-        else{
-        setLoading(true)
+        if (starRating === 0) {
+          return toast.error('Please provide a star rating');
+      }
+
+      setLoading(true);
+
          try {
           
            data.ratings=starRating
            data.productId=productId
+           data.customer_name=name
            
-           makePostRequest(
+         await  makePostRequest(
              setLoading,
              "api/reviews",
              data,
@@ -51,21 +58,23 @@ export default  function ReviewForm({productId, isOpen,setIsOpen}) {
            }, 2000);
            
          } catch (error) {
-           console.log(error)
+          console.error(error);
+          toast.error('Failed to submit review');
+          setLoading(false);
          }
         
         }
-       }
+       
   return (
-    <div>
+    <div className='w-full mx-auto'>
 
 <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-2xl p-2 shadow-md bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 mx-auto my-3"
+        className="w-full max-w-2xl p-2 px-5 shadow-md bg-white border border-gray-200 rounded-lg  dark:bg-gray-800 dark:border-gray-700 mx-auto my-3"
       >
 {/* star ratings here */}
 <div className='flex justify-center'>
- {[...Array(5)].map((star,index)=>{
+ {[...Array(5)].map((_,index)=>{   //using _ because the property is not useful but presence needed
    const ratingValue= index + 1;
    
    return(
@@ -73,7 +82,7 @@ export default  function ReviewForm({productId, isOpen,setIsOpen}) {
     <div className='mb-5' key={index}>
     <label className='hover:cursor-pointer'
     onMouseEnter={()=>setStarHover(ratingValue)}
-    onMouseLeave={()=>setStarHover(null)}
+    onMouseLeave={()=>setStarHover(0)}
 
 >
     <input type='radio' className='hidden ' value={ratingValue} onClick={()=>setStarRating(ratingValue)}/>
@@ -89,12 +98,7 @@ export default  function ReviewForm({productId, isOpen,setIsOpen}) {
    
  </div>
 
-  <TextInput
-       label="Customer Name"
-       name="customer_name"
-       register={register}
-       errors={errors}
-     />
+ 
      <TextareaInput
        label="Customer Review"
        name="review"
@@ -103,15 +107,19 @@ export default  function ReviewForm({productId, isOpen,setIsOpen}) {
      />
      {/* submit button */}
      <div className='flex gap-3 mt-3 justify-end'>
-     <Button onClick={toggleCollapse} outline gradientMonochrome="failure">
+     <Button onClick={toggleCollapse} outline gradientMonochrome="failure" className=" montserrat">
    Cancel
  </Button>
  
 
- <Button type='submit'  gradientMonochrome="success">
-  {/* spinner */}
- 
- Submit</Button>
+ {loading ? (
+  <Button gradientMonochrome="success" type="submit" className=" montserrat flex gap-1"> 
+   
+     Submitting <LoadingDots/></Button>
+ ): (
+  <Button gradientMonochrome="success"  type="submit" className="montserrat"> 
+      Submit</Button>)}
+
 
      </div>
 

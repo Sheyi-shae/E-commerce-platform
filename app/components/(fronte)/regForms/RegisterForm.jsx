@@ -5,7 +5,7 @@ import { Button, Checkbox, Label } from 'flowbite-react';
 import { passwordCheck } from '@/lib/passwordCheck';
 import { makePostRequestFrontend } from '@/lib/apiRequest';
 
-export default function RegisterForm({setOpenModal}) {
+export default function RegisterForm({setOpenModal,setRegModal}) {
     const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false);
@@ -70,6 +70,13 @@ makePostRequestFrontend(
             label="Email"
             name="email"
             type="email"
+            register={register}
+            errors={errors}
+          />
+          <TextInput
+            label="Phone Number"
+            name="phone"
+            type="number"
             register={register}
             errors={errors}
           />
@@ -140,7 +147,7 @@ makePostRequestFrontend(
                 href="#"
                 className="text-cyan-700 hover:underline dark:text-cyan-500"
               >
-                Log in
+                <button onClick={()=>setRegModal(false)} >Log in</button>
               </a>
             </div>
           </div>

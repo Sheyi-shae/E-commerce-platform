@@ -100,6 +100,7 @@ export async function GET(request, { params: { id } }) {
       where: {
         id,
       },
+     
     });
 
     if (!category) {

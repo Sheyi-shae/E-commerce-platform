@@ -1,10 +1,11 @@
-import LoginForm from '@/app/components/(fronte)/regForms/LoginForm'
-import React from 'react'
+import FormLogin from "./FormLogin";
 
 export default function page() {
+  
+      
   return (
-    <div>
-        <LoginForm/>
-    </div>
+  <>
+    <FormLogin/>
+  </>
   )
 }

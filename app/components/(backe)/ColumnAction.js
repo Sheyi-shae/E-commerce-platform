@@ -35,7 +35,7 @@ export default function ColumnAction({name,link}) {
 
           
           {/* export */}
-          <Link href={link} > <button type="button" class="text-white flex bg-gradient-to-br from-green-800 to-lime-600 
+          <Link href={link} > <button type="button" className="text-white flex bg-gradient-to-br from-green-800 to-lime-600 
           hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 
           font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
           <span><Plus size={18}/></span>

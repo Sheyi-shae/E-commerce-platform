@@ -4,6 +4,8 @@ import DsmallCards from './DsmallCards'
 import DsalesChart from './DsalesChart'
 import DbestSellingChart from './DbestSellingChart'
 import Dtable from './Dtable'
+import CustomerTable from './CustomerTable'
+import RecentOrders from './RecentOrders'
 
 export default function DashboardComponent() {
  
@@ -30,7 +32,9 @@ export default function DashboardComponent() {
 
         {/* table */}
         <div className=' z-0 p-2'>
-        <Dtable/>
+        {/* <Dtable/> */}
+        <RecentOrders/>
+       
         </div>
         
     </div>

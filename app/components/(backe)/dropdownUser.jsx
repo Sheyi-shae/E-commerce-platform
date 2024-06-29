@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {
     DropdownMenu,
@@ -15,9 +16,8 @@ export default function DropdownUser() {
     <div>
         <DropdownMenu>
   <DropdownMenuTrigger>
-  <div>
-    <button className='flex items-center justify-center'><Image src={'/passport.jpg'} width={20} height={20} alt='profile' className=' rounded-full w-7 h-7'/></button>
- </div>
+  {/* <Image src={'/passport.jpg'} width={20} height={20} alt='profile' className=' rounded-full w-7 h-7'/> */}
+<User/>
   </DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>My Account</DropdownMenuLabel>

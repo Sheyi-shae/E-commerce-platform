@@ -1,19 +1,25 @@
-"use client"
-import { ChevronDown, ChevronRight, LayoutDashboard, LogOut, ScrollText,
+'use client'
+import { ChevronDown, ChevronRight, LayoutDashboard, LogOut, 
+     PieChart, 
      ShoppingBasket, Slack, Store, User2, UserCog, UsersRound } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+
 import React, { useState } from 'react'
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
   } from "@/components/ui/collapsible"
+  import { usePathname } from 'next/navigation'
+
   
 
-export default function Sidebar({sideBar, setSideBar}) {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export default  function SidebarContent({sideBar, setSideBar, }) {
     const [collaspse, setCollapse]= useState(false);
+const pathname=usePathname();
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    
+    
     const sideLinks=[
         {title:'customers',
         icon:<User2/>,
@@ -60,7 +66,7 @@ export default function Sidebar({sideBar, setSideBar}) {
     
     },
 ]
-    const pathname=usePathname();
+ 
     
   return (
     <div>
@@ -74,9 +80,9 @@ export default function Sidebar({sideBar, setSideBar}) {
  dark:text-slate-200 space-y-1 h-screen  flex-col '>
  
  
-<Link onClick={()=>setSideBar(false)} href={'/dashboard'}><span className={pathname === '/dashboard' ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100 shadow-sm shadow-black md:p-4 p-3 dark:bg-slate-900': 'gap-2 flex flex-row shadow-sm   p-3 md:p-4 dark:bg-slate-800'}>
-<LayoutDashboard  /> Dashboard</span></Link>
-<button> <span className={pathname === '/dashboard/categories'  ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100 shadow-smshadow-black p-3 md:p-4 dark:bg-slate-900': 'gap-2 md:p-4 flex flex-row shadow-sm    p-3 dark:bg-slate-800'}><Slack/>
+<Link onClick={()=>setSideBar(false)} href={'/dashboard'}><span className={pathname === '/dashboard' ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100 shadow-black md:p-4 p-3 dark:bg-slate-900': 'gap-2 flex flex-row    p-3 md:p-4 dark:bg-slate-800'}>
+<PieChart  /> Dashboard</span></Link>
+ <span className={pathname === '/dashboard/categories'  ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100  p-3 md:p-4 dark:bg-slate-900': 'gap-2 md:p-4 flex flex-row     p-3 dark:bg-slate-800'}> <Slack/>
 <Collapsible>
   <CollapsibleTrigger onClick={()=>setCollapse(!collaspse)}> <span className='flex flex-row   '> Catalogue
 
@@ -98,7 +104,7 @@ export default function Sidebar({sideBar, setSideBar}) {
   
 </Collapsible>
 
-</span> </button>
+</span> 
 {sideLinks.map((link,i)=>{
     const icon=link.icon
     return(

@@ -1,3 +1,4 @@
+import { Button } from 'flowbite-react'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
 import React from 'react'
 
@@ -13,20 +14,21 @@ export default function Newsletter() {
        }
     ]
   return (
-    <div className='bg-slate-100 dark:bg-slate-400 w-full h-[19rem]'>
-<h3 className='text-black p-4 uppercase font-bold text-lg flex justify-center items-center'>Newsletter</h3>
-<p className='text-slate-600 capitalize flex justify-center items-center text-lg'>join our mailing list</p>
+    <div className='specialbg dark:bg-slate-600 w-full montserrat rounded-sm h-[19rem] py-3'>
+<h3 className='text-slate-800 dark:text-slate-900 p-4 uppercase  text-lg flex justify-center items-center'>Newsletter</h3>
+<p className='text-slate-800 capitalize flex justify-center items-center text-sm'>join our mailing list</p>
 <div className='flex flex-col items-center justify-center '>
-    <input type='email' className='bg-inherit w-[80%] rounded-md focus:ring-yellow-500 outline-yellow-500 focus:border-yellow-500 ' placeholder='Email'/>
+    <input type='email' className='bg-inherit w-[80%] rounded-md ' placeholder='Email'/>
     <div className="flex justify-center items-center py-4">
-          <button className="uppercase p-3 bg-yellow-500 hover:text-yellow-500 hover:bg-slate-900
-           transition-all ease-in-out duration-700 dark:bg-slate-900 dark:text-yellow-600 ">Subscribe</button></div>
+    <Button type="button" className=" bg-slate-50 px-6 md:px-10 montserrat" disabled gradientDuoTone="pinkToOrange">
+          
+          Subscribe</Button></div>
        
 </div>
 
 <div className='flex items-center justify-center gap-2'>
 {socialIcons.map((icon,i)=>(
-<div key={i} className='bg-inherit flex items-center justify-center shadow-sm shadow-slate-800 hover:bg-yellow-500 w-10 h-10 rounded-full'>
+<div key={i} className='bg-inherit flex items-center justify-center shadow-xl  hover:bg-red-400 w-10 h-10 rounded-full'>
 {icon.icon}
 </div>
 ))}

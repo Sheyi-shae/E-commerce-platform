@@ -16,9 +16,9 @@ datasource db {
 
 model Couponcode {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId //merging prisma id with mongo db id generated
-  couponSlug      String   
+  couponSlug      String   @unique
   title       String
-  discount    String
+  discount    Int
   expiryDate  DateTime
    createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
   updatedAt   DateTime  @updatedAt      // Automatically update updatedAt when a record is modified
@@ -109,7 +109,56 @@ model User {
   lastName    String
   email    String  @unique
   password String
+  phone String?
+  address String?
+  country String?
+  city String?
+  state String?
   isAdmin    Boolean
    createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
-  updatedAt   DateTime  @updatedAt      // Automatically update updatedAt when a record is modified
+  updatedAt   DateTime  @updatedAt 
+  wishlist  String[]
+  orders  Orders[]     // Automatically update updatedAt when a record is modified
 }
+
+enum OrderStatus {
+  PROCESSING
+  SUCCESS
+  FAILED
+  PENDING
+}
+model Orders{
+   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+   product OrderProduct[]
+    email    String  
+    firstName String
+    lastName String
+  phone String
+  address String
+ 
+  city String
+  state String
+  userId String  @db.ObjectId
+  status      OrderStatus  @default(PROCESSING)
+ totalPrice Float
+
+ amountPaid Float?
+ createdAt   DateTime  @default(now()) // Automatically set createdAt when a record is created
+  updatedAt   DateTime  @updatedAt 
+
+  // One-to-many relation with Category (if applicable)
+  
+  user    User?    @relation(fields: [userId], references: [id], onDelete:Cascade, onUpdate:Cascade)
+
+}
+//define product type that will be passed into the order model as objects in an array
+type OrderProduct {
+   id String
+   imageUrl String
+  qty Int
+  Discountedprice Float
+  title String
+}
+
+
+

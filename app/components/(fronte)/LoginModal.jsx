@@ -1,19 +1,25 @@
 "use client";
 
-import { Button, Checkbox, Label, Modal} from "flowbite-react";
-import { X } from "lucide-react";
+import { Button, Modal} from "flowbite-react";
+import { User, X } from "lucide-react";
 import { useState } from "react";
 
 import LoginForm from "./regForms/LoginForm";
+import RegisterForm from "./regForms/RegisterForm";
 
-export function LoginModal() {
+export function LoginModal({setRegModal,regModal,title,className,gradientDuoTone,size}) {
   const [openModal, setOpenModal] = useState(false);
  
 
   return (
     <>
-      <span onClick={() => setOpenModal(true)}>Log in</span>
-      <Modal show={openModal} size="md" popup onClose={() => setOpenModal(false)}>
+    <Button onClick={() => setOpenModal(true)}  className='hidden md:flex' gradientDuoTone={gradientDuoTone}>
+          <User size={size} className="mr-1" />
+      {title}</Button>
+      <button onClick={() => setOpenModal(true)}  className={'flex md:hidden'} >
+          <User size={size} className="mr-1" />
+      {title}</button>
+      <Modal show={openModal} size="xl" popup onClose={() => setOpenModal(false)}>
         {/* Video Background Container */}
         
             {/* Replace with the path to your video file */}
@@ -36,7 +42,9 @@ export function LoginModal() {
        
         <Modal.Body className="relative"> 
         <div className="flex justify-end " ><button onClick={() => setOpenModal(false)} className=" mt-1"><X/></button></div>
-         <LoginForm setOpenModal={setOpenModal}/>
+        {!regModal && <LoginForm setOpenModal={setOpenModal} setRegModal={setRegModal}/>}
+        {regModal && <RegisterForm setOpenModal={setOpenModal} setRegModal={setRegModal}/>}
+
         </Modal.Body>
       </Modal>
     </>

@@ -1,23 +1,28 @@
-import { Inter } from "next/font/google";
 
-import { Providers } from "@/context/Providers";
 import Navbar from "../components/(fronte)/Navbar";
-import Headersection from "../components/(fronte)/Headersection";
+
+import Headbar from "../components/(fronte)/Headbar";
+
+
+
 
 
 
 export default function Layout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body >
+    
      
-      <Providers>
-      <Headersection/>
+   
+     
+      <>
+     
+      <Headbar/>
       
     <Navbar/>
-      {children}
-      </Providers>
-      </body>
-    </html>
+    {children}
+     </>
+     
+
+   
   );
 }

@@ -1,13 +1,16 @@
-"use client"
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function DbestSellingChart() {
+  
  const data = {
-        labels: ['Electronics', 'Watches', 'Smart Phones', 'Laptops', ],
+        labels: ['Electronics', 'Home Appliances', 'Smart Phones', 'Computing', ],
+       
         datasets: [
           {
             label: 'No of sales',
@@ -32,8 +35,9 @@ export default function DbestSellingChart() {
       };
       
   return (
-    <div className='dark:bg-slate-700 bg-slate-100 shadow-md dark:shadow-none shadow-slate-300 flex-1 p-1'>
+    <div className='dark:bg-slate-700 text-sm montserrat bg-slate-100 shadow-md dark:shadow-none shadow-slate-300 flex-1 p-1'>
     <div>
+
     <h2 className='capitalize text-center font-normal text-slate-700 dark:text-white ring-0 p-
     1 ring-slate-400 shadow-md shadow-black'>Best selling product</h2>
     

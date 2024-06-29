@@ -1,55 +1,72 @@
-import { CarFront, Layers2, Layers2Icon, Layers3, LucideLayers2, LucideShoppingCart, ShoppingBag, ShoppingBasket, ShoppingCart, ShoppingCartIcon, Sparkles } from 'lucide-react'
-import React from 'react'
+'use client'
+import { getData } from '@/lib/getData'
+import { AreaChart, BadgeDollarSign, BarChart,   LineChart, PieChart,    } from 'lucide-react'
+import React, { useState } from 'react'
+import { FormatCurrency } from '../(fronte)/moneyinput'
+import FetchData from '@/lib/fetchData(client)'
+
 
 export default function DashboardCards() {
-  const sales =[
-    
-  ]
+  const[ lastMonth,setLastMonth]=useState([])
+  const [thisMonth,setThisMonth]=useState([])
+  const [today,setToday ]=useState([])
+  const[ yesterday,setYesterday]=useState([])
+  const[ allTime,setAllTime]=useState([])
+
+ 
+  
   return (
     <div>
-        <div className='grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-5 p-3 gap-2  text-center'>
+    <div className='flex gap-3'>
+    <FetchData endpoint={'lastmonthsales'} state={lastMonth} setState={setLastMonth}/>
+    <FetchData endpoint={'thismonthsales'} state={thisMonth} setState={setThisMonth}/>
+    <FetchData endpoint={'todaysales'} state={today} setState={setToday}/>
+    <FetchData endpoint={'yesterdaysales'} state={yesterday} setState={setYesterday}/>
+    <FetchData endpoint={'alltimesales'} state={allTime} setState={setAllTime}/></div>
+        <div className='grid  grid-cols-2 md:grid-cols-4 montserrat text-xs md:text-sm lg:grid-cols-5 p-3 gap-2  text-center'>
         <div className='bg-blue-600 shadow-md  p-2'>
         {/* cards */}
       <span className='text-white capitalize  ' >
-      <center><Layers2 size={32}/></center>
-        today sales
-        <p>{'\u20A6'} 80,000</p>
+      <center><AreaChart size={32}/></center>
+        Today Sales
+        <p>{FormatCurrency(today.totalSales)}</p>
       </span>
       
 </div>
 <div className='bg-green-600 shadow-md w-auto h-auto p-2'>
         {/* cards */}
       <span className='text-white capitalize ' >
-      <center><Layers3 size={32}/></center>
+      <center><LineChart size={32}/></center>
         yesterday orders
-        <p>{'\u20A6'} 120,000</p>
+        <p>{FormatCurrency(yesterday.totalSales)}</p>
       </span>
       
 </div>
 <div className='bg-orange-600 shadow-md w-auto h-auto p-2'>
         {/* cards */}
       <span className='text-white capitalize ' >
-      <center><ShoppingCart size={32}/></center>
+      <center><BadgeDollarSign size={32}/></center>
         current month 
-        <p>{'\u20A6'} 780,000</p>
-      </span>
-      
-</div>
-<div className='bg-yellow-600 shadow-md w-auto h-auto p-2'>
-        {/* cards */}
-      <span className='text-white capitalize ' >
-      <center><ShoppingBasket size={32}/></center>
-        previous month
-        <p>{'\u20A6'} 1,080,000</p>
+        <p>{FormatCurrency(thisMonth.totalSales)}</p>
       </span>
       
 </div>
 <div className='bg-violet-600 shadow-md w-auto h-auto p-2'>
         {/* cards */}
       <span className='text-white capitalize ' >
-      <center><ShoppingBag size={32}/></center>
+      <center><PieChart size={32}/></center>
+        previous month
+        <p>{FormatCurrency(lastMonth.totalSales)}</p>
+      </span>
+      
+</div>
+
+<div className='bg-violet-600 shadow-md w-auto h-auto p-2'>
+        {/* cards */}
+      <span className='text-white capitalize ' >
+      <center><BarChart size={32}/></center>
         all-time sales
-        <p>{'\u20A6'} 9,080,000</p>
+        <p>{FormatCurrency(allTime.totalSales)}</p>
       </span>
       
 </div>

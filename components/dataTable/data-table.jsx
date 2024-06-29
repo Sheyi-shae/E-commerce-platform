@@ -70,7 +70,7 @@ export function DataTable({
           placeholder={`Search ${name}...`}
           value={(table.getColumn("title")?.getFilterValue() ) ?? ""}
           onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
+            table.getColumn("title" )?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

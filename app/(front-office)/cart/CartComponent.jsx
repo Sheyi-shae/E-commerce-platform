@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export function CartComponent() {
     const cartItems= useSelector((store)=>store.cart) // cart is it name in the reducer
-  const subTotal = cartItems.reduce((acc,currentItem)=>{
+  const subTotal = cartItems?.reduce((acc,currentItem)=>{
    return acc + (currentItem.Discountedprice * currentItem.qty) //acc is the accumulator for adding total items price
   },0)
   const dispatch=useDispatch()
@@ -28,9 +28,9 @@ function handleQtyDecrement(cartId){
 }
   return (
     <div className="overflow-x-auto flex justify-center flex-col gap-3  "> 
-          {cartItems.length > 0 ? 
+          {cartItems?.length > 0 ? 
 
-      cartItems.map((item, i) => (
+      cartItems?.map((item, i) => (
       <Table striped key={i}>
         <Table.Head>
           <Table.HeadCell>Product </Table.HeadCell>
@@ -95,7 +95,7 @@ function handleQtyDecrement(cartId){
 
       
         
-       { cartItems.length > 0 && 
+       { cartItems?.length > 0 && 
        <>
        <div className="w-full p-1 py-4 text-slate-800 dark:text-slate-50 roboto-bold
        rounded-sm flex justify-end gap-7  bg-gray-200 shadow-lg dark:bg-slate-600">

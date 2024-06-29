@@ -114,7 +114,7 @@ export  function TextareaInput({
           id={name}
           rows={3}
           placeholder={`Type the ${label.toLowerCase()}`} 
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-200 sm:text-sm sm:leading-6"
           defaultValue={defaultValue}
         />
         {errors[`${name}`] && (
@@ -130,6 +130,7 @@ export  function SelectInput({
   label,
   name,
   register,
+  isRequired = true,
   className = "sm:col-span-2",
   options = [],
   
@@ -144,14 +145,52 @@ export  function SelectInput({
       </label>
       <div className="mt-2">
         <select
-          {...register(`${name}`)}
+          {...register(`${name}`,{ required: isRequired })}
           id={name}
           name={name}
-          className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-200 sm:max-w-xs sm:text-sm sm:leading-6"
         >
           {options.map((option, i) => {
             return (
-              <option key={i} value={option.id}>
+              <option key={i} value={option.id} className="hover:bg-orange-300">
+                {option.title}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    </div>
+  );
+}
+
+//select input as options title
+export  function SelectInputTitle({
+  label,
+  name,
+  register,
+  isRequired = true,
+  className = "sm:col-span-2",
+  options = [],
+  
+}) {
+  return (
+    <div className={className}>
+      <label
+        htmlFor={name}
+        className="block text-sm font-medium leading-6 text-gray-900 dark:text-slate-100"
+      >
+        {label}
+      </label>
+      <div className="mt-2">
+        <select
+          {...register(`${name}`,{ required: isRequired })}
+          id={name}
+          name={name}
+          className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-orange-200 sm:max-w-xs sm:text-sm sm:leading-6"
+        >
+          {options.map((option, i) => {
+            return (
+              <option key={i} value={option.title} className="hover:bg-orange-300">
                 {option.title}
               </option>
             );

@@ -23,3 +23,22 @@ export async function POST(request){
         
     }
 }
+
+export async function GET(request){
+    try {
+        const staff =await db.staff.findMany(
+            {
+                orderBy:{
+                    createdAt:"desc"
+                },
+                
+            },
+            
+        )
+        return NextResponse.json(staff);
+    } catch (error) {
+        console.error("Error:", error);
+        // Return an error response with status code 500
+        return NextResponse.json({ status: 500 });
+    }
+}

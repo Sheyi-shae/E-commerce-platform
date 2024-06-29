@@ -5,14 +5,16 @@ import CategoriesMenu from "./Categories";
 
 import Link from "next/link";
 import { Button } from "flowbite-react";
+import { useSession } from "next-auth/react";
 
 
 export default function Navbar() {
-  const [showCategories, setShowCategories] = useState(false);
+  const [showCategories, setShowCategories] = useState(true);
+  const {data:session, status}=useSession()
 
   const categoriesBarClasses = `
   categoriesbar 
-    ${showCategories ? ' open' : ' h-0 overflow-hidden'} /* Set initial height */
+    ${showCategories ? ' open z-50' : ' h-0 overflow-hidden'} 
   `;
 
   const handleToggleCategories = () => {
@@ -20,25 +22,25 @@ export default function Navbar() {
      
   };
   const NavLinks=[
-    {id:1,title:'home',url:'', icon:<Home className=""/>},{id:2,title:'collection',url:'',icon:<Boxes/>},{id:3,title:'shop',url:'',icon:<Store/>},
-    {id:4,title:'new deals',url:'',icon:<Flame color="red"/>},{id:5,title:'about us',url:'',icon:<NotebookTabs/>},
-    {id:6,title:'contact',url:'',icon:<Contact/>}]
+    {id:1,title:'home',url:'/'},{id:2,title:'collection',url:'/collections'},{id:3,title:'my cart',url:'/ca1rt'},
+    {id:4,title:'new deals',url:'/'},{id:5,title:'about us',url:'/about',},
+    ,{id:6,title:'orders',url:'/orders',icon:<Boxes/>}]
 
     
 
   return (
     <div className=" ">
    <div className="h-[9.5vh] md:h-[12.7vh] lg:h-[12.7vh] "></div>
-      <div className="lg:h-[8vh] hidden md:flex lg:flex items-center     px-20  bg-black ">
+      <div className="lg:h-[8vh] hidden md:flex lg:flex items-center  backdrop-blur-lg   px-20  bg-black ">
       
         <div className=" hidden md:hidden lg:block h-10 z-[2] ">
 
-        <Button onClick={handleToggleCategories} className="px-12 font-medium focus:ring-0 montserrat" gradientDuoTone="pinkToOrange">
-        <AlignRight  size={20} className=" mr-2"/> Categories</Button>
+        <Button onClick={handleToggleCategories} className="px-12 font-medium focus:ring-0 uppercase montserrat" gradientDuoTone="pinkToOrange">
+        <AlignRight  size={20} className=" mr-2"/>all Categories</Button>
           
          
           
-          <div className={`z-40 ${categoriesBarClasses}`}>
+          <div className={`z-50 ${categoriesBarClasses}`}>
             <CategoriesMenu />
           </div>
          
@@ -47,14 +49,15 @@ export default function Navbar() {
          {/* nav links */}
         
         {NavLinks.map((link)=>(
-          <Link href={''} key={link.id} className="capitalize lg:font-normal
+          <Link href={link.url} key={link.id} className="capitalize lg:font-normal
            text-slate-100 px-4 py-2 open-sans items-center flex  whitespace-nowrap md:text-sm 
-            hover:text-yellow-600   transition-colors duration-500">
+            hover:text-pink-600   transition-colors duration-500">
             {link.title}
            
            </Link>
         ))}
-       
+
+      
           </>
       </div>
       

@@ -56,11 +56,15 @@ export async function POST(request) {
 export async function GET(request){
     try {
         const Products =await db.product.findMany(
-            // {
-            //     orderBy:{
-            //         createdAt:"desc"
-            //     }
-            // }
+            {
+                orderBy:{
+                    createdAt:"desc"
+                },
+                include:{
+                reviews :true
+            },
+            },
+            
         )
         return NextResponse.json(Products);
     } catch (error) {
