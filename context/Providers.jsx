@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 export default function Providers({ children }) {
   // Wrapped inside the main layout.js
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark">
+    <ThemeProvider attribute="class" defaultTheme="light">
       <Toaster position="top-center" reverseOrder={false} />
       <SessionProvider>
         <Provider store={store}>{children}</Provider>

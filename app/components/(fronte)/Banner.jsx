@@ -24,7 +24,7 @@ export default function Banner() {
       
 
     </div>
-    <div className='w-full h-[50vh] -z-10 hidden lg:block  md:h-[70vh]  lg:mt-0 bg-slate-50 dark:bg-slate-800 '>
+    <div className='w-full h-[50vh]  hidden lg:block  md:h-[70vh]  lg:mt-0 bg-slate-50 dark:bg-slate-800 '>
     <Hero/>
 
       

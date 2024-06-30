@@ -44,7 +44,7 @@ export default function FetchedReviews({key,review}) {
         </div>
       </div>
       
-      <blockquote className="text-gray-700 mb-3 montserrat">{review.review}</blockquote>
+      <blockquote className="text-gray-700 dark:text-slate-50 mb-3 montserrat">{review.review}</blockquote>
       <div className='flex justify-end text-xs'> {formatDate(new Date(review.createdAt))}</div>
     </div>
    

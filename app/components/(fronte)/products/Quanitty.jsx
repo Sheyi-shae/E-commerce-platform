@@ -36,7 +36,7 @@ useEffect(() => {
     
     {showQuantity && 
     <div>
-    <div className='roboto-light text-slate-600'>Quantity</div>
+    <div className='roboto-light text-slate-600 dark:text-slate-50'>Quantity</div>
     
     <div className='flex  '>
     <div className=''>
@@ -44,7 +44,7 @@ useEffect(() => {
     </div>
 
 
-    <div className='ring-slate-100 ring-1 text-slate-600 font-semibold  px-8
+    <div className='ring-slate-100 ring-1 dark:ring-slate-600 dark:text-slate-50 text-slate-600 font-semibold  px-8
      p-2 shadow-sm overflow-hidden'>
     {currentProduct ? currentProduct?.qty : 0}
     </div>

@@ -43,7 +43,7 @@ export default function ProductDetail({product}) {
   return (
     <div>
    
-    <div className='flex md:flex-row flex-col gap-4 md:gap-7 montserrat  py-8  w-full  '>
+    <div className='flex md:flex-row dark:text-slate-50 flex-col gap-4 md:gap-7 montserrat  py-8  w-full  '>
     {/* product image */}
         <div className='relative w-full h-[60vh] md:w-1/2  ring-slate-200 ring-1 overflow-hidden cursor-zoom-in'>
         <Image src={mainImg} fill alt=''  className='object-contain absolute hover:scale-150
@@ -63,7 +63,7 @@ export default function ProductDetail({product}) {
         
        <div className='flex gap-2 '>
        <p className=" font-serif font-semibold dark:text-pink-700 text-pink-600 text-lg md:text-2xl ">&#x20A6; {product.Discountedprice}</p>
-       <p className="  font-normal  text-sm text-slate-500 dark:text-slate7900 line-through md:text-lg ">&#x20A6; {product.Origninalprice}</p>
+       <p className="  font-normal dark:text-slate-50 text-sm text-slate-500 dark:text-slate7900 line-through md:text-lg ">&#x20A6; {product.Origninalprice}</p>
        </div>
 
        <div className="flex items-center ">
@@ -83,7 +83,7 @@ export default function ProductDetail({product}) {
           </div>
        <div className='roboto-light  text-slate-500 mt-4 '>
       
-      <span className='font-normal'>Product tags:</span><span className='font-light text-sm'>
+      <span className='font-normal dark:text-slate-50'>Product tags:</span><span className='font-light text-sm'>
        
           <span className='space-x-2' >{tags.join(', ' )},</span>
        

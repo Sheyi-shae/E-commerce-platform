@@ -70,7 +70,7 @@ export default function WishlistBtn({product}) {
     
   return (
     <div>
-        <button onClick={handleLike} className='flex  text-slate-500 text-sm gap-1 p-1 mt-2 md:mb-8'>
+        <button onClick={handleLike} className='flex dark:text-slate-50 text-slate-500 text-sm gap-1 p-1 mt-2 md:mb-8'>
         <Heart size={18} fill={`${isLiked ? 'red':'white'}`}/> {isLiked ? 'Added to wishlist' : 'Add to wishlist'}</button>
     </div>
   )

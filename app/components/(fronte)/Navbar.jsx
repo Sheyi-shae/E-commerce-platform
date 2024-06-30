@@ -6,6 +6,7 @@ import CategoriesMenu from "./Categories";
 import Link from "next/link";
 import { Button } from "flowbite-react";
 import { useSession } from "next-auth/react";
+import { ThemeSwitcher } from "../ThemeSwitcher";
 
 
 export default function Navbar() {
@@ -57,7 +58,7 @@ export default function Navbar() {
            </Link>
         ))}
 
-      
+       <ThemeSwitcher/>
           </>
       </div>
       
