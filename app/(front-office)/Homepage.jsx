@@ -8,10 +8,28 @@ import Newsletter from "../components/(fronte)/Newsletter";
 import CountdownTimer from '../components/(fronte)/CountDown';
 import { Button } from 'flowbite-react';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 
 
 export default function MainHomepage() {
+  const {data:session, status}=useSession()
+
+  if(status==='loading'){
+    return (
+      <div class="cssload-preloader">
+	<div class="cssload-preloader-box">	
+    	<div>l</div>		
+        <div>o</div>	
+        	<div>a</div>	
+            	<div>d</div>
+                		<div>i</div>	
+                        	<div>n</div>	
+                            	<div>g</div>
+                                </div>
+</div>
+    )
+  }
   const deadline = new Date(2024, 9, 24, 12, 0); 
 
   return (

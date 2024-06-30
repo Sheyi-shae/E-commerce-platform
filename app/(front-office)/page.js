@@ -1,7 +1,4 @@
 'use client'
-
-
-import { ChevronRight } from 'lucide';
 import ProductSliders from '../components/(fronte)/sliders/productSliders';
 import MainHomepage from './Homepage';
 import { Suspense } from 'react';
@@ -9,6 +6,7 @@ import Loading from '../components/(fronte)/Loading';
 
 
 export default function page() {
+  
   return (
     <main className=" min-h-screen  dark:bg-slate-900 ">
     <Suspense fallback={<Loading/>}>
