@@ -97,17 +97,7 @@ export default function SearchModal(){
       </div>)
       : (
         <>
-        <div class="cssload-preloader">
-	<div class="cssload-preloader-box">	
-    	<div>l</div>		
-        <div>o</div>	
-        	<div>a</div>	
-            	<div>d</div>
-                		<div>i</div>	
-                        	<div>n</div>	
-                            	<div>g</div>
-                                </div>
-</div>
+        <Spinner size={'lg'} color={'red'}/>
         </>
       )}
             

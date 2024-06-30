@@ -24,7 +24,7 @@ const Product = () => {
             
             
             {products.length > 0 && (
-              products.slice(0,8).map((product) => (
+              products.slice(0,16).map((product) => (
                 <ProductExt product={product} key={product.id} />
               ))
             )}
