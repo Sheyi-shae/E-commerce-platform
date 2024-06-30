@@ -74,13 +74,15 @@ export default function MobileSearch(){
             {results.length > 0 ? (
             <div className='flex flex-col gap-2 '>
         {results?.map((product) => (
-          <div key={product.id} className='justify-between text-slate-800 dark:text-slate-900 hover:bg-red-500 hover:text-slate-50 text-sm flex p-1 rounded-sm  w-full'>
+          <Link key={product.id} onClick={() => setOpenModal(false)} href={`/product/${product.slug}`} >
+          <div  className='justify-between text-slate-800 dark:text-slate-900 hover:bg-red-500 hover:text-slate-50 text-sm flex p-1 rounded-sm  w-full'>
           <div className='relative h-12  w-1/6'>
         <Image src={product.imageUrl} fill alt='productImage'  className='object-cover w-16 h-16 absolute '/>
          </div>
          <div className='line-clamp-1 w-4/6'>{product.title}</div>
         <div className=''>&#x20A6; {product.Discountedprice}</div>
           </div>
+          </Link>
         ))}
       </div>)
       : (

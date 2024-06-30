@@ -152,8 +152,14 @@ export default function CartSidebar({ state, setState, toggleCart }) {
 
         {/* checkout and order */}
       </div>
+     
 
       <div className="absolute bottom-0 flex flex-col justify-center mb-2 gap-2 w-full dark:text-slate-50">
+      <Link href={'/cart'} className='text-slate-800 dark:bg-slate-50' onClick={toggleCart}>
+                
+                My Cart
+              
+            </Link>
         <div className="flex flex-col gap-2 text-xs md:text-sm roboto-light text-slate-600 ring-1 ring-slate-200 rounded-sm px-2">
           <div className="flex justify-between font-semibold dark:text-slate-50">
             <div className="">Total</div>
@@ -182,7 +188,7 @@ export default function CartSidebar({ state, setState, toggleCart }) {
               <Link href={'/checkout'} onClick={toggleCart}>
                 <Button
                   type="button"
-                  
+                  onClick={() => setState(false)}
                   className="bg-slate-50 hidden md:block px-6 md:px-10 montserrat"
                   gradientDuoTone="pinkToOrange"
                 >

@@ -62,7 +62,7 @@ export default  function Headersection({ sessions }) {
           )}
           {sessions?.user.isAdmin && (
             <Link href='/dashboard'>
-            <PieChart size={28}/>
+            <PieChart size={28} className=' dark:text-pink-600'/>
             </Link>
           )}
         </div>
@@ -71,7 +71,7 @@ export default  function Headersection({ sessions }) {
             onClick={() => setSideCart(true)}
             type='button'
             className='relative inline-flex items-center p-3 text-center'>
-            <HiShoppingBag fontSize={30}  className='text-slate-800 dark:text-white ' />
+            <HiShoppingBag fontSize={30}  className='text-slate-800 dark:text-pink-600 ' />
             <span className='sr-only'>Shopping Basket</span>
             <span className='absolute inline-flex items-center shadow-sm justify-center w-5 h-5 text-xs text-white bg-slate-900 rounded-full -top-0 end-8'>
               {cartItems?.length}

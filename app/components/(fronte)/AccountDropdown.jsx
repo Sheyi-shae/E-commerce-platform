@@ -30,7 +30,7 @@ export default function AccountDropdown({sessions}) {
   return (
     <div>
         <DropdownMenu>
-  <DropdownMenuTrigger><UserCheck size={28} className='text-slate-800 dark:text-white'/></DropdownMenuTrigger>
+  <DropdownMenuTrigger><UserCheck size={28} className='text-slate-800  dark:text-pink-600'/></DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel className='capitalize line-clamp-1'>{sessions.user.firstName} {sessions.user.lastName}</DropdownMenuLabel>
     <DropdownMenuSeparator />

@@ -12,10 +12,11 @@ export default async function page() {
     <div className='hidden md:block md:w-[20%] shadow-md space-y-3 montserrat'>
     <div className='w-full relative h-full   '>
 <Image  src={'/mini_banners/banner1.avif'} className='object-contain transition-all duration-500 group-hover:scale-105' alt={'speaker'} fill  />
+<Image  src={'/mini_banners/banner3.avif'} className='object-contain transition-all duration-500 group-hover:scale-105' alt={'speaker'} fill  />
 </div>
 
 <div className='w-full relative h-full   '>
-<Image  src={'/mini_banners/banner3.avif'} className='object-contain transition-all duration-500 group-hover:scale-105' alt={'speaker'} fill  />
+
 </div>
     </div>
 

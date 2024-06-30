@@ -36,7 +36,7 @@ export default function Navbar() {
       
         <div className=" hidden md:hidden lg:block h-10 z-[2] ">
 
-        <Button onClick={handleToggleCategories} className="px-12 font-medium focus:ring-0 uppercase montserrat" gradientDuoTone="pinkToOrange">
+        <Button disabled onClick={handleToggleCategories} className="px-12 font-medium focus:ring-0 uppercase montserrat" gradientDuoTone="pinkToOrange">
         <AlignRight  size={20} className=" mr-2"/>all Categories</Button>
           
          
