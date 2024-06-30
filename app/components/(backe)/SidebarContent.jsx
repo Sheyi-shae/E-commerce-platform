@@ -11,6 +11,7 @@ import {
     CollapsibleTrigger,
   } from "@/components/ui/collapsible"
   import { usePathname } from 'next/navigation'
+import { ThemeSwitcher } from '../ThemeSwitcher'
 
   
 
@@ -114,6 +115,7 @@ const pathname=usePathname();
 
 <Link onClick={()=>setSideBar(false)} href={'/dashboard/settings'}><span className={pathname === '/dashboard/settings' ? 'gap-2 flex flex-row border-l-4 border-lime-500 text-lime-500 bg-slate-100 shadow-sm shadow-black md:p-4 p-3 dark:bg-slate-900': 'gap-2 flex flex-row   p-3 md:p-4 dark:bg-slate-800'}>
 <UserCog /> Settings</span></Link>
+<ThemeSwitcher className={'text-lime-600'}/>
 <button  className="text-white  bg-gradient-to-br from-pink-600 to-red-600
     hover:bg-gradient-to-bl flex items-center justify-center rounded-md shadow-md focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 
     font-medium  text-sm  py-3  ml-3 text-center me-2 mb-2">Logout <LogOut/> </button>

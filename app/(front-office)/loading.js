@@ -1,19 +1,11 @@
 import React from 'react'
+import Loading from '../components/(fronte)/Loading'
 
 export default function loading() {
   return (
- 
-        <div class="cssload-preloader">
-	<div class="cssload-preloader-box">	
-    	<div>s</div>		
-        <div>h</div>	
-        	<div>e</div>	
-            	<div>y</div>
-                		<div>m</div>	
-                        	<div>a</div>	
-                            	<div>n</div>
-                                </div>
-</div>
+ <div>
+	<Loading/>
+ </div>
    
   )
 }

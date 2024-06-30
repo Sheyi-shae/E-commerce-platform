@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function loading() {
+export default function Loading() {
   return (
- 
-        <div class="cssload-preloader">
+    
+    <div class="cssload-preloader">
 	<div class="cssload-preloader-box">	
     	<div>s</div>		
         <div>h</div>	
@@ -14,6 +14,5 @@ export default function loading() {
                             	<div>n</div>
                                 </div>
 </div>
-   
   )
 }

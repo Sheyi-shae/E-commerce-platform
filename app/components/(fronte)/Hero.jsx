@@ -82,19 +82,19 @@ const Hero = () => {
   }, [fadeApi, stripeApi,imageApi,buttonApi]);
 
   return (
-    <div className='px-3 w-full hidden z-10 lg:flex'>
-    <animated.div  style={imageProps} className=' z-[5] h-[30rem] w-[30rem] -mt-4  ml-24 absolute '>
+    <div className='px-3 w-full hidden z-0 lg:flex'>
+    <animated.div  style={imageProps} className=' z-0 h-[30rem] w-[30rem] -mt-4  ml-24 absolute '>
     <Image src={'/hero-image.png'} fill alt='heroimage' className=' object-contain w-full h-full '/>
 
     </animated.div>
     <div className=" mt-20 flex flex-col w-full "> 
     
-      <animated.div style={fadeProps} className="flex justify-center w-full whitespace-nowrap z-10 items-center ">
+      <animated.div style={fadeProps} className="flex justify-center w-full whitespace-nowrap z-0 items-center ">
         <h1 className='text-6xl text-slate-800 dark:text-slate-50 open-sans font-extrabold '>30% DISCOUNT</h1>
         
       </animated.div>
       <animated.div className={'bg-red-600 dark:bg-red-800 h-16 p-3 flex justify-center items-center'} style={{ ...stripeProps, left: '0' }}>
-       <h1 className='text-6xl  text-slate-50 dark:text-slate-900 jersey-25-regular z-20 ml-10  font-extrabold '>WELCOME20</h1>
+       <h1 className='text-6xl  text-slate-50 dark:text-slate-900 jersey-25-regular z-[2] ml-10  font-extrabold '>WELCOME20</h1>
      </animated.div>
 
      <animated.div className={' flex justify-center items-center ml-16'} style={{ ...buttonProps }} >

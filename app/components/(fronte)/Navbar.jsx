@@ -14,7 +14,7 @@ export default function Navbar() {
 
   const categoriesBarClasses = `
   categoriesbar 
-    ${showCategories ? ' open z-50' : ' h-0 overflow-hidden'} 
+    ${showCategories ? ' open ' : ' h-0 overflow-hidden'} 
   `;
 
   const handleToggleCategories = () => {
@@ -40,7 +40,7 @@ export default function Navbar() {
           
          
           
-          <div className={`z-50 ${categoriesBarClasses}`}>
+          <div className={`z-[100] ${categoriesBarClasses}`}>
             <CategoriesMenu />
           </div>
          

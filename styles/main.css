@@ -285,7 +285,7 @@
   width: fit-content;
   overflow-y: auto;
   top: 0;
-  z-index: 100;
+  z-index: 200;
  
   transform: translateY(100%); /* Slide up initially */
   transition: all 2s ease-out
@@ -294,7 +294,8 @@
 .categoriesbar.open {
   
   transform: translateY(4%); /* Slide down when open */
-  transition: all 1s ease-in
+  transition: all 1s ease-in;
+  z-index: 200;
 }
 .categoriesbar.close {
   

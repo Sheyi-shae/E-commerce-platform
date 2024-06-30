@@ -32,8 +32,6 @@ export default function Layout({children}) {
 
 
 <div className='flex space-x-2 md:ml-[85%] lg:ml-[90%]'>
-
-                 <ThemeSwitcher className={'text-lime-600'}/>
               
   <button className='text-lime-400 relative inline-flex items-center p-1 text-sm font-medium text-center'><Bell />
   
