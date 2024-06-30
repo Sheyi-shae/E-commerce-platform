@@ -81,7 +81,7 @@ export default  function Headersection({ sessions }) {
       </div>
       {/* mobile screen */}
       <div className='md:hidden fixed z-10 px-2 lg:hidden flex shadow-md shadow-slate-400 dark:shadow-inner
-       min-w-full justify-between flex-row specialbg dark:bg-slate-700 h-[9vh] gap-2 items-center'>
+       min-w-full justify-between flex-row specialbg dark:bg-slate-700 h-[10vh] gap-2 items-center'>
         <div className={`cartbar ${sideCart ? 'cartopen' : 'cartclose'}`}>
           <CartSidebar state={sideCart} setState={setSideCart} toggleCart={toggleCart} />
         </div>

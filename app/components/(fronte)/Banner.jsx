@@ -11,7 +11,7 @@ export default function Banner() {
   return (
     <>
     
-    <div className='w-full lg:hidden h-[25vh]   lg:mt-0 bg-slate-50 dark:bg-slate-800 '>
+    <div className='w-full lg:hidden h-[20vh] md:h-[30vh]  lg:mt-0 bg-slate-50 dark:bg-slate-800 '>
   
 <FetchData state={banners} setState={setBanners} endpoint={'banners'}/>
       <Carousel pauseOnHover>
