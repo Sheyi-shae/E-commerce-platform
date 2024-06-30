@@ -59,7 +59,7 @@ export default function ProductDetail({product}) {
          ))}
     </div>
         <div className='w-full px-8 md:px-5 lg:px-3 grid grid-cols-1  md:w-1/2 '>
-        <h3 className='montserrat text-lg font-bold  md:text-2xl capitalize text-slate-700'>{product.title}</h3>
+        <h3 className='montserrat text-lg font-bold dark:text-slate-50 md:text-2xl capitalize text-slate-700'>{product.title}</h3>
         
        <div className='flex gap-2 '>
        <p className=" font-serif font-semibold dark:text-pink-700 text-pink-600 text-lg md:text-2xl ">&#x20A6; {product.Discountedprice}</p>
@@ -85,7 +85,7 @@ export default function ProductDetail({product}) {
       
       <span className='font-normal dark:text-slate-50'>Product tags:</span><span className='font-light text-sm'>
        
-          <span className='space-x-2' >{tags.join(', ' )},</span>
+          <span className='space-x-2 dark:text-slate-50' >{tags.join(', ' )},</span>
        
       </span>
       </div>

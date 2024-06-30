@@ -10,7 +10,7 @@ import { ThemeSwitcher } from "../ThemeSwitcher";
 
 
 export default function Navbar() {
-  const [showCategories, setShowCategories] = useState(true);
+  const [showCategories, setShowCategories] = useState(false);
   const {data:session, status}=useSession()
 
   const categoriesBarClasses = `

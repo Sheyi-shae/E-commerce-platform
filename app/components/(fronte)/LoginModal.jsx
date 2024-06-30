@@ -16,7 +16,7 @@ export function LoginModal({setRegModal,regModal,title,className,gradientDuoTone
     <Button onClick={() => setOpenModal(true)}  className='hidden md:flex' gradientDuoTone={gradientDuoTone}>
           <User size={size} className="mr-1" />
       {title}</Button>
-      <button onClick={() => setOpenModal(true)}  className={'flex md:hidden'} >
+      <button onClick={() => setOpenModal(true)}  className={'flex md:hidden dark:text-pink-600'} >
           <User size={size} className="mr-1" />
       {title}</button>
       <Modal show={openModal} size="xl" popup onClose={() => setOpenModal(false)}>

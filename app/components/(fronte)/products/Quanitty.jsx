@@ -61,7 +61,8 @@ useEffect(() => {
 
     <div className='mt-3'>
     <Button gradientDuoTone="pinkToOrange" onClick={()=>handleAddtocart()} type="button"
-     className="text-white  focus:outline-none montserrat  rounded-lg  px-24 py-2 ">ADD TO CART</Button>
+     className="text-white  focus:outline-none montserrat text-sm md:font-normal
+       rounded-lg  px-24 py-2 whitespace-nowrap">ADD TO CART</Button>
     </div>
     
 
