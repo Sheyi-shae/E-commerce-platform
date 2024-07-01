@@ -138,7 +138,7 @@ export const columns = [
            <DropdownMenuSeparator />
             <Pen size={22} /> Edit</DropdownMenuItem></Link>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><DeleteModal name={'Banner'} endpoint={`categories`} id={categoryId.id}/></DropdownMenuItem>
+            <DropdownMenuItem><DeleteModal name={'Banner'} endpoint={`banners`} id={categoryId.id}/></DropdownMenuItem>
        
           </DropdownMenuContent>
         </DropdownMenu>
