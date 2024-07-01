@@ -45,7 +45,7 @@ const email= sessions?.user.email
     return (
         <div >
         <StepsHeader steps={steps} currentStep={currentStep}/>
-        <div className=' w-[90%]  p-2  mx-auto'>
+        <div className=' w-full p-1 md:w-[90%]  md:p-2  mx-auto'>
           {renderFormStep(currentStep)}  
         </div>
         

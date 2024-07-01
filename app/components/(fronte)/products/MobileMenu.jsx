@@ -5,7 +5,7 @@ import { Badge, Button, Sidebar } from "flowbite-react";
 import Link from "next/link";
 import { HiArrowSmRight, HiChartPie, HiShoppingBag, HiTable, HiUser, } from "react-icons/hi";
 import { ThemeSwitcher } from "../../ThemeSwitcher";
-import { BookType, Bus, Group, LogOut, User } from "lucide-react";
+import { BookType, Bus, Group, Home, LogOut, User } from "lucide-react";
 import { signOut } from "next-auth/react";
 import toast from "react-hot-toast";
 import AcccountModal from "../AcccountModal";
@@ -28,6 +28,11 @@ export function MobileMenu({toggleSidebar,isOpen,sessions, cartItems}) {
     <Sidebar aria-label="Default sidebar example" >
       <Sidebar.Items className="text-sm">
         <Sidebar.ItemGroup onClick={()=>toggleSidebar()}>
+        <Link href={'/'}>
+          <Sidebar.Item icon={Home} className="text-sm">
+            Home
+          </Sidebar.Item>
+          </Link>
         {sessions?.user.isAdmin && ( 
           <><Link href={'/dashboard'}>
           <Sidebar.Item icon={HiChartPie} className="text-sm">
@@ -60,9 +65,9 @@ export function MobileMenu({toggleSidebar,isOpen,sessions, cartItems}) {
            
               </Sidebar.Item>
               {sessions?.user ? (
-                <button onClick={handleLogOut} className="text-white  bg-gradient-to-br from-pink-600 to-red-600
+                <button onClick={handleLogOut} className="text-slate-50  bg-gradient-to-br from-pink-600 to-red-600
     hover:bg-gradient-to-bl flex items-center justify-center rounded-md shadow-md dark:focus:ring-pink-800 
-     text-sm  p-2 px-9  text-center me-2 mb-2"><Sidebar.Item  className="text-sm flex">
+     text-sm  p-2 px-12  text-center me-2 mb-2"><Sidebar.Item  className="text-sm flex">
      Logout</Sidebar.Item></button>
 
               ) :(

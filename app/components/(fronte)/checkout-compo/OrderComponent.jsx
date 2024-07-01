@@ -45,8 +45,8 @@ cartItems?.map((item, i) => (
             </Table.Cell>
            
             {/* format current does current(naira) formatting */}
-             <Table.Cell>{item.qty} X {FormatCurrency(item.Discountedprice) }</Table.Cell>
-             <Table.Cell className="">
+             <Table.Cell className="text-xs md:text-sm ">{item.qty} X {FormatCurrency(item.Discountedprice) }</Table.Cell>
+             <Table.Cell className="text-xs md:text-sm ">
              {FormatCurrency(item.Discountedprice * item.qty)}
              </Table.Cell>
            

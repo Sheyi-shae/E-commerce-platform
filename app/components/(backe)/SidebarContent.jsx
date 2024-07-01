@@ -1,5 +1,5 @@
 'use client'
-import { ChevronDown, ChevronRight, LayoutDashboard, LogOut, 
+import { ChevronDown, ChevronRight, LogOut, 
      PieChart, 
      ShoppingBasket, Slack, Store, User2, UserCog, UsersRound } from 'lucide-react'
 import Link from 'next/link'
@@ -73,7 +73,7 @@ const pathname=usePathname();
     <div>
     <div className='fixed h-auto z-[1] '>
        
-        <div className={` ${sideBar ? ' transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block' : 'transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block'}`}>
+        <div className={` ${sideBar ? ' transition-all ease-in-out duration-1000 w-[35vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block' : 'transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block'}`}>
 <div className=' text-black hidden md:block dark:text-slate-200 text-2xl h-12'>LOGO HERE</div>
 
 
