@@ -52,7 +52,7 @@ export default function page() {
                                 </div>
 
                                 <blockquote class="flex-1 mt-8">
-                                    <p class="text-lg leading-relaxed text-gray-900 font-pj">“You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.”</p>
+                                    <p class=" leading-relaxed text-gray-900 font-pj text-sm">“You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change.”</p>
                                 </blockquote>
                             </div>
 
@@ -98,7 +98,7 @@ export default function page() {
                                 </div>
 
                                 <blockquote class="flex-1 mt-8">
-                                    <p class="text-lg leading-relaxed text-gray-900 font-pj">“Simply the best. Better than all the rest. I’d recommend this product to beginners and advanced users.”</p>
+                                    <p class="text-sm leading-relaxed text-gray-900 font-pj">“Simply the best. Better than all the rest. I’d recommend this product to beginners and advanced users.”</p>
                                 </blockquote>
                             </div>
 
@@ -144,7 +144,7 @@ export default function page() {
                                 </div>
 
                                 <blockquote class="flex-1 mt-8">
-                                    <p class="text-lg leading-relaxed text-gray-900 font-pj">“I cannot believe that I have got a brand new landing page after getting Omega. It was super easy to edit and publish.”</p>
+                                    <p class="text-sm leading-relaxed text-gray-900 font-pj">“I cannot believe that I have got a brand new landing page after getting Omega. It was super easy to edit and publish.”</p>
                                 </blockquote>
                             </div>
 

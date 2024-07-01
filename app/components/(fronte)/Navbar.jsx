@@ -23,7 +23,7 @@ export default function Navbar() {
      
   };
   const NavLinks=[
-    {id:1,title:'home',url:'/'},{id:2,title:'collection',url:'/collections'},{id:3,title:'my cart',url:'/ca1rt'},
+    {id:1,title:'home',url:'/'},{id:2,title:'collection',url:'/collections'},{id:3,title:'my cart',url:'/cart'},
     {id:4,title:'new deals',url:'/'},{id:5,title:'about us',url:'/about',},
     ,{id:6,title:'orders',url:'/orders',icon:<Boxes/>}]
 

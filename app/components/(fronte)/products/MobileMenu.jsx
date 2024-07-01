@@ -116,8 +116,7 @@ Sign in
           </button>
         </div>
         <div className="mb-3 text-sm text-cyan-900 dark:text-gray-400">
-          Preview the new  dashboard navigation! You can turn the new navigation off for a limited time in your
-          profile.
+          Preview the   dashboard navigation! You can explore the admin dashboard  for a limited time 
         </div>
         
       </Sidebar.CTA>
