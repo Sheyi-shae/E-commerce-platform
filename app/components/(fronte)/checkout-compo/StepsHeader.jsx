@@ -31,7 +31,7 @@ export default function StepsHeader({steps,currentStep}) {
      </div>
 
 
-<div className='py-3'><Link href='/cart'><button className='p-1 hover:bg-slate-300 rounded-sm shadow-sm text-slate-700 ring-1 ring-slate-400'>Edit cart</button></Link></div> 
+<div className='py-3'><Link href='/cart'><button className='p-1 hover:bg-slate-300 rounded-sm whitespace-nowrap shadow-sm text-slate-700 ring-1 ring-slate-400'>Edit cart</button></Link></div> 
 </div>
     </div>
    
