@@ -89,7 +89,7 @@ export default function CartSidebar({ state, setState, toggleCart }) {
                     <div className="capitalize line-clamp-2 text-slate-600 open-sans text-xs md:text-sm">
                       {item.title}
                     </div>
-                    <div className="text-xs roboto-light text-slate-400">
+                    <div className="text-xs dark:text-slate-50 roboto-light text-slate-400">
                       {item.qty} X {FormatCurrency(item.Discountedprice)}
                     </div>
                     <div className="flex mt-4">

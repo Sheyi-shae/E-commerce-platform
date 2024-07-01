@@ -20,7 +20,7 @@ export function MobileMenu({toggleSidebar,isOpen,sessions, cartItems}) {
   }
   return (
     <div 
-        className={`  fixed top-16 -left-0 z-50 w-[30%]  h-full   transform transition-transform duration-500 ease-in-out ${
+        className={`  fixed top-20 -left-0 z-50 w-[30%]  h-full   transform transition-transform duration-500 ease-in-out ${
           isOpen ? 'translate-x-0 ' : '-translate-x-[250%]  '
         } `}
       >
@@ -62,7 +62,7 @@ export function MobileMenu({toggleSidebar,isOpen,sessions, cartItems}) {
               {sessions?.user ? (
                 <button onClick={handleLogOut} className="text-white  bg-gradient-to-br from-pink-600 to-red-600
     hover:bg-gradient-to-bl flex items-center justify-center rounded-md shadow-md dark:focus:ring-pink-800 
-     text-sm  p-2 px-2  text-center me-2 mb-2"><Sidebar.Item  className="text-sm flex">
+     text-sm  p-2 px-9  text-center me-2 mb-2"><Sidebar.Item  className="text-sm flex">
      Logout</Sidebar.Item></button>
 
               ) :(

@@ -38,7 +38,7 @@ cartItems?.map((item, i) => (
               alt=''
               width={500}
               height={300}
-              className='object-cover h-20  w-20  rounded-sm'
+              className='object-cover h-12 md:h-20 w-12 md:w-20  rounded-sm'
             />
             <span className="text-xs md:text-sm ">{item.title}</span>
           </div>

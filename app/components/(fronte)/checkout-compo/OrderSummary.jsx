@@ -108,10 +108,11 @@ const dispatch=useDispatch()
 
   return (
     <div>
-      <div className='hidden md:block'>
+      <div className=''>
         <OrderComponent />
         
       </div>
+      
 
 <div className='flex gap-3 mt-3'>
       <Button gradientDuoTone="pinkToOrange" outline onClick={onPrevious} type="button" className=" bg-slate-50 montserrat">
