@@ -155,7 +155,7 @@ export default function ProductForm({title,initialData={}}) {
             type='number'
           />
           </div> 
-          {productImages > 2 && 
+          {productImages.length > 2 && 
           <SubmitButton 
         
           isLoading={loading}

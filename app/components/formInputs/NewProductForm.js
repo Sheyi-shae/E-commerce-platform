@@ -4,8 +4,8 @@ import ImageInput, { ImageInputDropZone } from '@/app/components/formInputs/Imag
 import TextInput, { SelectInput, SubmitButton, TextareaInput } from '@/app/components/formInputs/TextInput';
 import { makePostRequest } from '@/lib/apiRequest';
 import { generateSlug } from '@/lib/generateSlug';
-import { getData } from '@/lib/getData';
-import { Plus, PlusCircle, Tag, Undo2, X } from 'lucide-react'
+
+import { Undo2,  } from 'lucide-react'
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
