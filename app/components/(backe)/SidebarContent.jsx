@@ -12,6 +12,7 @@ import {
   } from "@/components/ui/collapsible"
   import { usePathname } from 'next/navigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
+import Image from 'next/image'
 
   
 
@@ -73,7 +74,7 @@ const pathname=usePathname();
     <div>
     <div className='fixed h-auto z-[1] '>
        
-        <div className={` ${sideBar ? ' transition-all ease-in-out duration-1000 w-[35vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block' : 'transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block'}`}>
+        <div className={` ${sideBar ? ' transition-all ease-in-out duration-1000 w-[40vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block' : 'transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block'}`}>
         <div className='h-full relative p-8 w-20'>
         <Link href={'/'}><Image src='/logo.png' alt='logo' fill className='object-cover'/> </Link>         
         </div>

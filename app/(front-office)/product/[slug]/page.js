@@ -7,6 +7,7 @@ import React from 'react'
 import ProductDetail from '../ProductDetail'
 import {  Home } from 'lucide-react'
 import { Breadcrumb, BreadcrumbItem } from "flowbite-react";
+import Link from 'next/link'
 
 export default async function ProductDetails({params:{slug}}) {
     const product= await getData(`productdetails/${slug}`)
@@ -14,11 +15,11 @@ export default async function ProductDetails({params:{slug}}) {
   return (
     <div className='px-3 py-1'>
      <Breadcrumb aria-label="Solid background breadcrumb example" className=" rounded-sm bg-gray-50 px-5 py-3 montserrat dark:bg-gray-800">
-      <Breadcrumb.Item href="/" icon={Home}>
+     <Link href="/"><Breadcrumb.Item  icon={Home}>
         Home
-      </Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Product</Breadcrumb.Item>
-      <Breadcrumb.Item>{product.title}</Breadcrumb.Item>
+      </Breadcrumb.Item></Link>
+      <Breadcrumb.Item className='text-xs md:text-sm whitespace-nowrap' href="#">Product</Breadcrumb.Item>
+      <Breadcrumb.Item className='text-xs md:text-sm whitespace-nowrap'>{product.title}</Breadcrumb.Item>
     </Breadcrumb>
     <div className='px-3 md:px-36'>
     <ProductDetail product={product}/>
