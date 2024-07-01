@@ -61,20 +61,20 @@ export const columns = [
     },
     
     {
-      accessorKey: "firstName",
+      accessorKey: "FirstName",
        header: () => <div className="">First Name</div>,
        cell: ({ row }) => {
-           const lastName = (row.getValue("firstName"))
+           const lastName = (row.getValue("FirstName"))
            
     
          return <div className="  line-clamp-1">{lastName}</div>
        },
      },
      {
-       accessorKey: "lastName",
+       accessorKey: "LastName",
        header: () => <div className="">Last Name</div>,
        cell: ({ row }) => {
-           const lastName = (row.getValue("lastName"))
+           const lastName = (row.getValue("LastName"))
            
     
          return <div className="  line-clamp-1 capitalize">{lastName}</div>
@@ -94,10 +94,10 @@ export const columns = [
     },
   },
   {
-    accessorKey: "StaffRole ",
+    accessorKey: "StaffRole",
     header:() => <div className="">Staff Role </div>,
     cell: ({ row }) => {
-      const StaffRole  = (row.getValue("description"))
+      const StaffRole  = (row.getValue("StaffRole"))
       
  
       return <div className=" line-clamp-2">{StaffRole }</div>
