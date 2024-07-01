@@ -74,8 +74,9 @@ const pathname=usePathname();
     <div className='fixed h-auto z-[1] '>
        
         <div className={` ${sideBar ? ' transition-all ease-in-out duration-1000 w-[35vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block' : 'transition-all ease-in-out duration-1000 w-[29vw] md:w-[17vw] bg-white shadow-md shadow-slate-300 dark:shadow-none dark:bg-slate-800  md:block'}`}>
-<div className=' text-black hidden md:block dark:text-slate-200 text-2xl h-12'>LOGO HERE</div>
-
+        <div className='h-full relative p-8 w-20'>
+        <Link href={'/'}><Image src='/logo.png' alt='logo' fill className='object-cover'/> </Link>         
+        </div>
 
 <div  className='  flex  py-12 text-xs md:text-sm md:py-7 capitalize 
  dark:text-slate-200 space-y-1 h-screen  flex-col '>

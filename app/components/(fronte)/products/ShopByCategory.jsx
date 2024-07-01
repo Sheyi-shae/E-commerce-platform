@@ -18,7 +18,7 @@ function ShopByCategory() {
     
     <>
     <Link key={item.id} href={`./${item.slug}`}>
-    <div className='flex justify-between montserrat text-slate-800'>
+    <div className='flex justify-between montserrat dark:text-slate-50 text-slate-800'>
     <div >{item.title}</div>
    <div className='text-sm'>({item.products.length})</div>
    </div>
